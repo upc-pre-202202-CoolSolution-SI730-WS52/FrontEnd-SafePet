@@ -1,0 +1,17 @@
+@import "./base.css";
+
+#app {
+  color: black;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+}
+
+
+
+@media (hover: hover) {
+
+}
+
+@media (min-width: 1024px) {
+
+}

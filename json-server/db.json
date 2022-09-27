@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "title": "Mpets Carbon Training Pads - Pañales de Entrenamiento (60x60cm)",
+      "price": 36.9,
+      "author": "Ryan",
+      "image": "dog1.jpg",
+      "category": "dog",
+      "id": 1
+    },
+    {
+      "title": "Dogxtreme Adulto Salmón",
+      "price": 200.9,
+      "author": "Ryan",
+      "image": "dog2.jpg",
+      "category": "dog",
+      "id": 2
+    },
+    {
+      "title": "ProPlan Puppy Lamb - Cachorro Cordero",
+      "price": 414.9,
+      "author": "Ryan",
+      "image": "dog3.jpg",
+      "category": "dog",
+      "id": 3
+    },
+    {
+      "title": "Tk pet Arena aglomerante",
+      "price": 89.9,
+      "author": "Ryan",
+      "image": "src/media/cat1.jpg",
+      "category": "cat",
+      "id": 4
+    },
+    {
+      "title": "Barker Cat Salmón y Jurel (500 g) 20 Hamburguesas",
+      "price": 13.9,
+      "author": "Ryan",
+      "image": "cat2.jpg",
+      "category": "cat",
+      "id": 5
+    },
+    {
+      "title": "Mpets Carbon Training Pads - Pañales de Entrenamiento (60x60cm)",
+      "price": 36.9,
+      "author": "Ryan",
+      "image": "dog1.jpg",
+      "category": "other",
+      "id": 6
+    }
+  ]
+}
