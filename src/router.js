@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router"; //Vue vite
 import Dogproducts from "./products/pages/products-list.component.vue";
 import newProductcomponent from "./products/pages/new-product.component.vue";
 const routes = [
-    {path: '/', component: App},
+    {path: '/', component: ProductsCategoryComponent},
     {path: "/products", component: ProductsCategoryComponent},
     {path: "/products/:category", component: Dogproducts},
     {path: "/products/new", component: newProductcomponent}
