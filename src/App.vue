@@ -1,24 +1,27 @@
 
 <template>
-  <div>
-    <pv-menu :model="items">
-      <template #item="{ item }">
-        <a :href="item.url" class="p-menuitem-link" >
-            <span class= {{item.icon}}>
-            </span>
-          <span class="p-menuitem-text">{{ item.label }}</span>
-        </a>
-      </template>
-    </pv-menu>
+  <div class="w-full">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
+      </div>
+      <div class="col-10 -ml-8">
+        <router-view/>
+      </div>
+
+    </div>
+
   </div>
 
-  <router-view />
 </template>
 
 <script>
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent  from "@/shared/pages/menubar.component.vue";
 export default {
   name: "App",
-  components: {},
+  components: {NavigationComponent,MenubarComponent},
   data() {
     return {
       items: [
@@ -57,7 +60,8 @@ export default {
 </script>
 
 <style scoped>
-.span{
-  max-height: 100px;
+body{
+  margin: 0 0;
+  background: #0d3c61;
 }
 </style>

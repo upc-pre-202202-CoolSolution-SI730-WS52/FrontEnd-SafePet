@@ -42,7 +42,7 @@
         <div class="category-card-container mr-0">
           <pv-button
             @click="$router.push('/products/cat')"
-            class="pi pi-check"
+            icon="pi pi-check"
           ></pv-button>
         </div>
       </div>
@@ -83,9 +83,11 @@ export default {
   height: 100%;
   border-style: groove;
   padding: 16px;
+  margin: 20px;
+  background: #f5f5f5;
 }
 .top-container {
-  background: ;
+  /*background: ;*/
   justify-content: space-between;
   align-items: center;
   padding: 10px;
@@ -108,7 +110,7 @@ export default {
 }
 
 div.image {
-  content: url(https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  /*content: url(https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);*/
   width: 100px;
   height: 100px;
   border-bottom-left-radius: 10px;
@@ -116,7 +118,7 @@ div.image {
 }
 
 div.image2 {
-  content: url(https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  /*content: url(https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);*/
   width: 100px;
   height: 100px;
   border-bottom-left-radius: 10px;
@@ -124,7 +126,7 @@ div.image2 {
 }
 
 div.image3 {
-  content: url(https://www.theveterinarydentist.com/wp-content/uploads/2016/09/fig1.jpg);
+  /*content: url(https://www.theveterinarydentist.com/wp-content/uploads/2016/09/fig1.jpg);*/
   width: 100px;
   height: 100px;
   border-bottom-left-radius: 10px;

@@ -16,6 +16,7 @@ import Menubar from "primevue/menubar";
 import Card from "primevue/card";
 import Menu from "primevue/menu";
 import Dialog from 'primevue/dialog';
+import Toolbar from 'primevue/toolbar';
 
 const app = createApp(App);
 app.use(PrimeVue);
@@ -26,4 +27,5 @@ app.component("pv-menubar", Menubar);
 app.component("pv-card", Card);
 app.component("pv-menu", Menu);
 app.component("pv-dialog", Dialog);
+app.component("pv-toolbar", Toolbar);
 app.mount("#app");
