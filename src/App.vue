@@ -1,4 +1,3 @@
-
 <template>
   <div class="w-full">
     <navigation-component></navigation-component>
@@ -7,21 +6,18 @@
         <menubar-component></menubar-component>
       </div>
       <div class="col-10 -ml-8">
-        <router-view/>
+        <router-view />
       </div>
-
     </div>
-
   </div>
-
 </template>
 
 <script>
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
-import MenubarComponent  from "@/shared/pages/menubar.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
 export default {
   name: "App",
-  components: {NavigationComponent,MenubarComponent},
+  components: { NavigationComponent, MenubarComponent },
   data() {
     return {
       items: [
@@ -29,7 +25,6 @@ export default {
           label: "Home",
           icon: "pi pi-refresh",
           url: "/",
-
         },
         {
           label: "Profile",
@@ -51,7 +46,7 @@ export default {
         {
           label: "Messages",
           icon: "pi pi-cog",
-        }
+        },
       ],
     };
   },
@@ -60,7 +55,7 @@ export default {
 </script>
 
 <style scoped>
-body{
+body {
   margin: 0 0;
   background: #0d3c61;
 }

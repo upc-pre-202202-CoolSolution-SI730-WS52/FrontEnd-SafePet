@@ -1,7 +1,7 @@
 <template>
   <div class="big-container">
     <div class="title-label">
-      <h1> {{ category }}</h1>
+      <h1>{{ category }}</h1>
       <br />
       <div class="buttons align-content-center justify-content-center">
         <pv-button @click="$router.push('/products')">back</pv-button>
@@ -18,7 +18,7 @@
           v-bind:key="product.id"
         >
           <template #header>
-<!--            <img class="image-card" src="src/media/{{product.image}}" />-->
+            <!--            <img class="image-card" src="src/media/{{product.image}}" />-->
           </template>
           <template #title> {{ product.title }}</template>
           <template #content> s/. {{ product.price }}</template>
@@ -26,7 +26,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -74,10 +73,9 @@ export default {
   max-height: 300px;
   border-style: groove;
 }
-.buttons{
+.buttons {
   justify-content: space-between;
-  margin : 0 auto;
-  margin-left: 20px;
+  margin: 0 auto;
 }
 .big-container {
   width: 100%;
