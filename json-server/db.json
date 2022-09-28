@@ -28,7 +28,7 @@
       "title": "Tk pet Arena aglomerante",
       "price": 89.9,
       "author": "Ryan",
-      "image": "src/media/cat1.jpg",
+      "image": "cat1.jpg",
       "category": "cat",
       "id": 4
     },
@@ -36,7 +36,7 @@
       "title": "Barker Cat Salmón y Jurel (500 g) 20 Hamburguesas",
       "price": 13.9,
       "author": "Ryan",
-      "image": "cat2.jpg",
+      "image": "cat2.png",
       "category": "cat",
       "id": 5
     },

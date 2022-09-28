@@ -1,10 +1,9 @@
 <template>
   <div class="big-container">
     <div class="title-label">
-      <h1>{{ category }}</h1>
+      <h1 class="back" @click="$router.push('/products')">{{ category }}</h1>
       <br />
       <div class="buttons align-content-center justify-content-center">
-        <pv-button @click="$router.push('/products')">back</pv-button>
         <pv-button @click="$router.push('/new')">New Product</pv-button>
       </div>
       <br />
@@ -18,9 +17,19 @@
           v-bind:key="product.id"
         >
           <template #header>
-            <!--            <img class="image-card" src="src/media/{{product.image}}" />-->
+            <div class="flex align-items-center justify-content-center">
+              <img
+                class="image-card"
+                :src="'../../src/assets/' + product.image"
+                v-bind:alt="product.image"
+              />
+            </div>
           </template>
-          <template #title> {{ product.title }}</template>
+          <template #title>
+            <h5 class="line-height-2">
+              {{ product.title }}
+            </h5>
+          </template>
           <template #content> s/. {{ product.price }}</template>
         </pv-card>
       </div>
@@ -64,13 +73,14 @@ export default {
 
 <style scoped>
 .image-card {
-  max-width: 150px;
+  max-height: 160px;
+  max-width: 130px;
 }
 
 .product-card {
   align-items: center;
   max-width: 200px;
-  max-height: 300px;
+  max-height: 500px;
   border-style: groove;
 }
 .buttons {
@@ -82,5 +92,8 @@ export default {
   height: 100%;
   border-style: groove;
   background: #f5f5f5;
+}
+.back {
+  cursor: pointer;
 }
 </style>

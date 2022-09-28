@@ -4,7 +4,6 @@ import PrimeVue from "primevue/config";
 
 import router from "./router.js";
 
-
 import "./assets/main.css";
 import "primevue/resources/themes/saga-green/theme.css"; //theme
 import "primevue/resources/primevue.min.css"; //core css
@@ -15,8 +14,8 @@ import Button from "primevue/button";
 import Menubar from "primevue/menubar";
 import Card from "primevue/card";
 import Menu from "primevue/menu";
-import Dialog from 'primevue/dialog';
-import Toolbar from 'primevue/toolbar';
+import Dialog from "primevue/dialog";
+import Toolbar from "primevue/toolbar";
 
 const app = createApp(App);
 app.use(PrimeVue);

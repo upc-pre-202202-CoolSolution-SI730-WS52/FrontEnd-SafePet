@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full">
+  <div class="w-full h-screen">
     <navigation-component></navigation-component>
     <div class="row flex">
       <div class="col-2">
         <menubar-component></menubar-component>
       </div>
-      <div class="col-10 -ml-8">
+      <div class="col-10 ">
         <router-view />
       </div>
     </div>
