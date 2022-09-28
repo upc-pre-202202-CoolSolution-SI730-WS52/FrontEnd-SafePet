@@ -53,8 +53,6 @@ export default {
 
 <style scoped>
 .menubar-container{
-  max-width: 200px;
-  margin:20px
-
+  margin:20px 20px 0px -9px;
 }
 </style>
