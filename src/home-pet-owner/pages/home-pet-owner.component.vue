@@ -201,12 +201,12 @@ img {
   font-size: 25px;
 }
 .most-purchased-products{
-  margin-left: 400px;
+  margin-left: 200px;
 }
 
 .maps-location{
   margin-top:20px;
-  margin-left: 350px;
+  margin-left: 150px;
 }
 @media (max-width: 768px)  {
   .container {
