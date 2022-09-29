@@ -83,5 +83,49 @@
       "id": 10
 
     }
+  ],
+  "most_purchased_products": [
+    {
+      "id": 1,
+      "name": "Whiskas Adults",
+      "description": "Fish flavor",
+      "price": 30,
+      "image": "https://wongfood.vteximg.com.br/arquivos/ids/392954-750-750/Whiskas-Alimento-Seco-para-Gatos-Adultos-Sabor-Pescado-Bolsa-1-5-Kg-1-183177610.jpg?v=637406372341730000"
+    },
+    {
+      "id": 2,
+      "name": "Ricocan Bits",
+      "description": "Chicken and vegetables",
+      "price": 20,
+      "image": "https://patihuellas.pe/wp-content/uploads/2021/05/CACHORROS-POLLO.jpg"
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "veterinarian": "Rodrigo Ugarte",
+      "date": "12/12/2022"
+    },
+    {
+      "id": 2,
+      "veterinarian": "María Vela",
+      "date": "12/12/2022"
+    }
+  ],
+  "veterinarians_near_you": [
+    {
+      "id": 1,
+      "name": "Alonso Poma",
+      "score": 5.0,
+      "image": "https://i0.wp.com/revista.weepec.com/wp-content/uploads/2021/02/vet-and-pet-EESKSLX.jpg",
+      "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7802.697478788431!2d-77.07652748935323!3d-12.088261200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9b8ebc551c3%3A0xa09e535f5953b183!2sTerra%20Pets%20-%20Consultorio%20Veterinario!5e0!3m2!1ses!2spe!4v1664259713122!5m2!1ses!2spe"
+    },
+    {
+      "id": 2,
+      "name": "Carmen Lopez",
+      "score": 4.0,
+      "image": "https://imgs.deperu.com/mujeres/veterinaria_gato.jpg",
+      "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7802.789310335075!2d-77.05607533022466!3d-12.085112200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f65722d2b3%3A0x48bb049b20ab6e24!2sCL%C3%8DNICA%20VETERINARIA%20QSVET!5e0!3m2!1ses!2spe!4v1664259824921!5m2!1ses!2spe"
+    }
   ]
 }
