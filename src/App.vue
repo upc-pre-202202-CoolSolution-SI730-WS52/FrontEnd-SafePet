@@ -43,6 +43,7 @@ export default {
         {
           label: "My Appointments",
           icon: "pi pi-cog",
+          url: "/appointments",
         },
         {
           label: "Messages",

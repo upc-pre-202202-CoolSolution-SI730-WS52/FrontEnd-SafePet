@@ -41,6 +41,7 @@ export default {
         {
           label: "My Appointments",
           icon: "pi pi-calendar",
+          url: "/appointments",
         },
         {
           label: "Messages",
