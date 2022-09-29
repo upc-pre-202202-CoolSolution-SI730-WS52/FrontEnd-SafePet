@@ -47,6 +47,41 @@
       "image": "dog1.jpg",
       "category": "other",
       "id": 6
+    },
+    {
+      "title": "Bentto Cat Super Premium",
+      "price": 15.90,
+      "author": "Ryan",
+      "image": "bentto.jpg",
+      "category": "cat",
+      "id": 7
+    },
+    {
+      "title": "Trixie Arena de Silice Simple and Clean para conejos 400g",
+      "price": 10.90,
+      "author": "Ryan",
+      "image": "rabbit.png",
+      "category": "other",
+      "id": 8
+
+    },
+    {
+      "title": "Jaula Conejera 102*53*46cm",
+      "price": 360.00,
+      "author": "Ryan",
+      "image": "Jaula.png",
+      "category": "other",
+      "id": 9
+
+    },
+    {
+      "title": "Trixie Casita de madera para roedores",
+      "price": 30.90,
+      "author": "Ryan",
+      "image": "Casa.png",
+      "category": "other",
+      "id": 10
+
     }
   ]
 }

@@ -1,11 +1,9 @@
 <template>
-  <div class="big-container">
+  <div class="big-container pl-5 mt-3">
     <div class="title-label">
-      <h1 class="back" @click="$router.push('/products')">{{ category }}</h1>
+      <h1 class="back" @click="$router.push('/products')">> {{ category }}</h1>
       <br />
-      <div class="buttons align-content-center justify-content-center">
-        <pv-button @click="$router.push('/new')">New Product</pv-button>
-      </div>
+      <pv-button> New product</pv-button>
       <br />
     </div>
     <br />
@@ -42,7 +40,6 @@ import { ProductsService } from "../services/products.service";
 
 export default {
   name: "ProductsListComponent",
-  components: {},
 
   data() {
     return {
@@ -59,7 +56,6 @@ export default {
     this.category = this.$route.params.category;
     // this.category[0] = this.category[0].toUpperCase();
     this.getProductsByCategory(this.categoryProduct);
-    console.log(this.products);
   },
   methods: {
     getProductsByCategory: function (category) {
@@ -75,23 +71,23 @@ export default {
 .image-card {
   max-height: 160px;
   max-width: 130px;
+  border-radius: 10px;
 }
 
 .product-card {
   align-items: center;
   max-width: 200px;
+  min-width: 100px;
   max-height: 500px;
   border-style: groove;
-}
-.buttons {
-  justify-content: space-between;
-  margin: 0 auto;
 }
 .big-container {
   width: 100%;
   height: 100%;
   border-style: groove;
   background: #f5f5f5;
+  border-radius: 10px;
+  padding: 16px;
 }
 .back {
   cursor: pointer;
