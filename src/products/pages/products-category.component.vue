@@ -19,9 +19,9 @@
         </div>
         <div class="category-card-container flex justify-content-end mr-6">
           <pv-button
-            class="p-button-text p-button-lg"
-            @click="$router.push('/products/dog')"
-            icon="pi pi-arrow-right"
+              class="p-button-text p-button-lg"
+              @click="$router.push('/products/dog')"
+              icon="pi pi-arrow-right"
           ></pv-button>
         </div>
       </div>
@@ -38,9 +38,9 @@
         </div>
         <div class="category-card-container flex justify-content-end mr-6">
           <pv-button
-            class="p-button-text p-button-lg"
-            @click="$router.push('/products/cat')"
-            icon="pi pi-arrow-right"
+              class="p-button-text p-button-lg"
+              @click="$router.push('/products/cat')"
+              icon="pi pi-arrow-right"
           ></pv-button>
         </div>
       </div>
@@ -58,9 +58,9 @@
         </div>
         <div class="category-card-container flex justify-content-end mr-6">
           <pv-button
-            class="p-button-text p-button-lg"
-            icon="pi pi-arrow-right"
-            @click="$router.push('/products/other')"
+              class="p-button-text p-button-lg"
+              icon="pi pi-arrow-right"
+              @click="$router.push('/products/other')"
           >
           </pv-button>
         </div>

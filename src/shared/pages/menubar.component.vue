@@ -36,6 +36,7 @@ export default {
         {
           label: "My Clients",
           icon: "pi pi-users",
+          url: "/clients"
         },
         {
           label: "My Appointments",

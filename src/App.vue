@@ -38,6 +38,7 @@ export default {
         {
           label: "My Clients",
           icon: "pi pi-cog",
+          url:"/clients",
         },
         {
           label: "My Appointments",

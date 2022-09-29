@@ -17,8 +17,7 @@
           <template #header>
             <div class="flex align-items-center justify-content-center">
               <img
-                class="image-card"
-                :src="'../../src/assets/' + product.image"
+                class="image-card" :src="'../../src/assets/' + product.image"
                 v-bind:alt="product.image"
               />
             </div>
