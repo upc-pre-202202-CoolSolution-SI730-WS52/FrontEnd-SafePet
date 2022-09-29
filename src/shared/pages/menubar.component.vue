@@ -1,11 +1,11 @@
 <template>
   <div class="menubar-container">
-    <pv-menu :model="items">
+    <pv-menu :model="items" :style="{ height: 635 + 'px', padding: 7 + 'px' }">
       <template #item="{ item }">
-        <a :href="item.url" class="p-menuitem-link" >
-            <span class="p-menuitem-icon">
-                <i :class="item.icon"></i>
-            </span>
+        <a :href="item.url" class="p-menuitem-link">
+          <span class="p-menuitem-icon">
+            <i :class="item.icon"></i>
+          </span>
           <span class="p-menuitem-text">{{ item.label }}</span>
         </a>
       </template>
@@ -30,29 +30,32 @@ export default {
         },
         {
           label: "Products",
-          icon: "pi pi-cog",
+          icon: "pi pi-shopping-cart",
           url: "/products",
         },
         {
           label: "My Clients",
-          icon: "pi pi-cog",
+          icon: "pi pi-users",
         },
         {
           label: "My Appointments",
-          icon: "pi pi-cog",
+          icon: "pi pi-calendar",
         },
         {
           label: "Messages",
-          icon: "",
-        }
+          icon: "pi pi-telegram",
+        },
       ],
     };
   },
-}
+};
 </script>
 
 <style scoped>
-.menubar-container{
-  margin:20px 20px 0px -9px;
+.menubar-container {
+  margin: 20px 20px 0px -9px;
+}
+.p-menu-list {
+  height: 900px;
 }
 </style>

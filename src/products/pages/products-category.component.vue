@@ -1,8 +1,8 @@
 <template>
-  <div class="product-container pl-5">
+  <div class="product-container pl-5 mt-3">
     <div class="top-container">
-      <label for="ProductList"> Products</label>
-      <h6>Select a product category</h6>
+      <label class="top-container-title" for="ProductList"> Products</label>
+      <h3>Select a product category</h3>
     </div>
 
     <br />
@@ -11,15 +11,15 @@
         <div class="category-card-container">
           <img class="image" src="@/assets/dogs.png" alt="category" />
         </div>
-        <div class="category-card-container">
+        <div class="category-card-container ml-3">
           <div class="ml-3">
-            <h3>Dogs</h3>
-            <h6>Cant: {{ countDog }}</h6>
+            <h1>Dogs</h1>
+            <h4>Cant: {{ countDog }}</h4>
           </div>
         </div>
-        <div class="category-card-container mr-0">
+        <div class="category-card-container flex justify-content-end mr-6">
           <pv-button
-            class="p-button-text"
+            class="p-button-text p-button-lg"
             @click="$router.push('/products/dog')"
             icon="pi pi-arrow-right"
           ></pv-button>
@@ -30,15 +30,15 @@
         <div class="category-card-container">
           <img class="image" src="@/assets/cat.jpg" alt="category" />
         </div>
-        <div class="category-card-container">
+        <div class="category-card-container ml-3">
           <div class="ml-3">
-            <h3>Cats</h3>
-            <h6>Cant: {{ countCat }}</h6>
+            <h1>Cats</h1>
+            <h4>Cant: {{ countCat }}</h4>
           </div>
         </div>
-        <div class="category-card-container mr-0">
+        <div class="category-card-container flex justify-content-end mr-6">
           <pv-button
-            class="p-button-text"
+            class="p-button-text p-button-lg"
             @click="$router.push('/products/cat')"
             icon="pi pi-arrow-right"
           ></pv-button>
@@ -50,15 +50,15 @@
         <div class="category-card-container">
           <img class="image" src="@/assets/Other.jpg" alt="category" />
         </div>
-        <div class="category-card-container mr-0">
+        <div class="category-card-container ml-3">
           <div class="ml-3">
-            <h3>Other</h3>
-            <h6>Cant: {{ countOther }}</h6>
+            <h1>Other</h1>
+            <h4>Cant: {{ countOther }}</h4>
           </div>
         </div>
-        <div class="category-card-container">
+        <div class="category-card-container flex justify-content-end mr-6">
           <pv-button
-            class="p-button-text"
+            class="p-button-text p-button-lg"
             icon="pi pi-arrow-right"
             @click="$router.push('/products/other')"
           >
@@ -89,17 +89,14 @@ export default {
   created() {
     this.productsService = new ProductsService();
     this.productsService.getProductsByCategory("dog").then((response) => {
-      console.log(response.data);
       this.countDog = response.data.length;
     });
     this.productsService.getProductsByCategory("cat").then((response) => {
-      console.log(response.data);
       this.countCat = response.data.length;
     });
     this.countOther = this.productsService
       .getProductsByCategory("other")
       .then((response) => {
-        console.log(response.data);
         this.countOther = response.data.length;
       });
   },
@@ -112,7 +109,6 @@ export default {
   height: 100%;
   border-style: groove;
   padding: 16px;
-  margin: 20px;
   background: #ffffff;
   border-radius: 10px;
 }
@@ -120,10 +116,9 @@ export default {
   /*background: ;*/
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
 }
 .category-card {
-  width: 300px;
+  width: 75%;
   display: flex;
   cursor: pointer;
   background: #ffffff;
@@ -131,18 +126,18 @@ export default {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
   align-items: center;
 }
-.cards {
-  max-height: 100%;
-  max-width: 100%;
-}
 .category-card-container {
   flex: 1;
 }
 
 .image {
-  width: 100px;
-  height: 100px;
+  max-width: 200px;
+  max-height: 150px;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
+}
+.top-container-title {
+  font-size: 32px;
+  font-weight: bold;
 }
 </style>

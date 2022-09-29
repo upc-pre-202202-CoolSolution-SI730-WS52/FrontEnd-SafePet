@@ -4,7 +4,7 @@
       <template #start>
         <div class="navigation-container-left flex align-items-center">
           <img class="logo" src="../../assets/logo.png" alt="logo" />
-          <h1 class="logo-text">SafePet</h1>
+          <h1 class="logo-text ml-3">SafePet</h1>
         </div>
       </template>
       <template #end>
