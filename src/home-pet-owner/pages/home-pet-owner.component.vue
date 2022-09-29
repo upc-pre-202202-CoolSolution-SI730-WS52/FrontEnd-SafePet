@@ -156,7 +156,7 @@ img {
 
 .images-vet img{
   margin-top:10px;
-  margin-left: 50px;
+  margin-left: 40px;
   display: inline-block;
   position: relative;
   width: 80px;

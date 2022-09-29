@@ -1,9 +1,10 @@
 import ProductsCategoryComponent from "./products/pages/products-category.component.vue";
 import { createRouter, createWebHistory } from "vue-router"; //Vue vite
 import Dogproducts from "./products/pages/products-list.component.vue";
+import HomePetOwner from "./home-pet-owner/pages/home-pet-owner.component.vue";
 
 const routes = [
-  { path: "/", component: ProductsCategoryComponent },
+  { path: "/", component: HomePetOwner },
   { path: "/products", component: ProductsCategoryComponent },
   { path: "/products/:category", component: Dogproducts },
 ];
