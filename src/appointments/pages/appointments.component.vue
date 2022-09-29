@@ -101,7 +101,6 @@ pv-button{
 .body-content{
   display: flex;
   gap: 50px;
-  border: 2px solid yellow;
 }
 
 .container-body_image img{
