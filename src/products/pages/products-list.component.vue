@@ -7,19 +7,18 @@
       <br />
     </div>
     <br />
-    <div class="card">
-      <div class="flex flex-column md:flex-row card-container">
-        <pv-card
-          class="product-card align-items-center justify-content-center card-item border-round m-2"
-          v-for="product in products"
-          v-bind:key="product.id"
-        >
+    <div>
+      <div class="cards">
+        <pv-card v-for="product in products" v-bind:key="product.id">
           <template #header>
-            <div class="flex align-items-center justify-content-center">
-              <img
-                class="image-card" :src="'../../src/assets/' + product.image"
-                v-bind:alt="product.image"
-              />
+            <div class="card-header">
+              <div class="card-image">
+                <img
+                  class="image-card"
+                  :src="'../../src/assets/' + product.image"
+                  v-bind:alt="product.image"
+                />
+              </div>
             </div>
           </template>
           <template #title>
@@ -27,7 +26,11 @@
               {{ product.title }}
             </h5>
           </template>
-          <template #content> s/. {{ product.price }}</template>
+          <template #footer>
+            <div class="p-card-footer">
+              <pv-button label="See more" @click="$router.push(`/products/${product.category}/${product.id}`)"/>
+            </div>
+          </template>
         </pv-card>
       </div>
     </div>
@@ -39,6 +42,7 @@ import { ProductsService } from "../services/products.service";
 
 export default {
   name: "ProductsListComponent",
+  components: {},
 
   data() {
     return {
@@ -60,6 +64,7 @@ export default {
     getProductsByCategory: function (category) {
       this.productsService.getProductsByCategory(category).then((response) => {
         this.products = response.data;
+
       });
     },
   },
@@ -67,19 +72,6 @@ export default {
 </script>
 
 <style scoped>
-.image-card {
-  max-height: 160px;
-  max-width: 130px;
-  border-radius: 10px;
-}
-
-.product-card {
-  align-items: center;
-  max-width: 200px;
-  min-width: 100px;
-  max-height: 500px;
-  border-style: groove;
-}
 .big-container {
   width: 100%;
   height: 100%;
@@ -88,7 +80,37 @@ export default {
   border-radius: 10px;
   padding: 16px;
 }
+
 .back {
   cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 50px;
+  column-gap: 40px;
+  border-radius: 80%;
+}
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40%;
+}
+.p-card-footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  font-size: 30px;
+
+}
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  max-height: 700px;
 }
 </style>
