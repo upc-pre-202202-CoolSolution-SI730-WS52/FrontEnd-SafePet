@@ -4,13 +4,13 @@ import Dogproducts from "./products/pages/products-list.component.vue";
 import HomePetOwner from "./home-pet-owner/pages/home-pet-owner.component.vue";
 import ClientListComponent from "@/clients/pages/clients-list.component.vue";
 import AppointmentsComponent from "@/appointments/pages/appointments.component.vue";
-
+import productComponent from "./products/pages/product-view.component.vue";
 const routes = [
   { path: "/", component: HomePetOwner },
   { path: "/products", component: ProductsCategoryComponent },
   { path: "/products/:category", component: Dogproducts },
-  { path: "/clients", component: ClientListComponent},
-
+  { path: "/clients", component: ClientListComponent },
+  { path: "/products/:category/:id", component: productComponent },
   { path: "/appointments", component: AppointmentsComponent },
 ];
 
