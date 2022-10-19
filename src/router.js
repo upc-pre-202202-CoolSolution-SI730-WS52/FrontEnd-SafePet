@@ -5,8 +5,11 @@ import HomePetOwner from "./home-pet-owner/pages/home-pet-owner.component.vue";
 import ClientListComponent from "@/clients/pages/clients-list.component.vue";
 import AppointmentsComponent from "@/appointments/pages/appointments.component.vue";
 import productComponent from "./products/pages/product-view.component.vue";
+import ProfileComponent from "@/profile/pages/profile.component.vue";
+
 const routes = [
   { path: "/", component: HomePetOwner },
+  { path: "/profile", component: ProfileComponent},
   { path: "/products", component: ProductsCategoryComponent },
   { path: "/products/:category", component: Dogproducts },
   { path: "/clients", component: ClientListComponent },
