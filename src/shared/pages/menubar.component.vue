@@ -27,6 +27,7 @@ export default {
         {
           label: "Profile",
           icon: "pi pi-user",
+          url: "/profile",
         },
         {
           label: "Products",
