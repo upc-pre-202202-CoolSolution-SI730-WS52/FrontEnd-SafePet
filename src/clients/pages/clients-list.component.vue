@@ -18,7 +18,7 @@
         </div>
         <div class="category-card-container flex justify-content-end mr-6">
           <pv-button label="Add"></pv-button>
-          <pv-button class="p-button-secondary" label="View" style="margin-left: .5em"></pv-button>
+          <pv-button class="p-button-secondary" @click="$router.push(`/clients/${client.id}`)" label="View" style="margin-left: .5em"></pv-button>
         </div>
       </div>
     </div>
