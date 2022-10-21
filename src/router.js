@@ -1,7 +1,7 @@
 import ProductsCategoryComponent from "./products/pages/products-category.component.vue";
 import { createRouter, createWebHistory } from "vue-router"; //Vue vite
 import Dogproducts from "./products/pages/products-list.component.vue";
-import HomePetOwner from "./home-pet-owner/pages/home-pet-owner.component.vue";
+import HomePetOwner from "./homes/home-pet-owner/pages/home-pet-owner.component.vue";
 import ClientListComponent from "@/clients/pages/clients-list.component.vue";
 import AppointmentsComponent from "@/appointments/pages/appointments.component.vue";
 import productComponent from "./products/pages/product-view.component.vue";
