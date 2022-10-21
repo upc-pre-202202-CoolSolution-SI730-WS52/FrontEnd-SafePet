@@ -11,6 +11,7 @@
       </div>
       <div class="card2">
         <div class="container">
+          <h1 style="margin-bottom:10px; text-align:center"><b>Date: 12-08-2022</b></h1>
           <h1><b>Observations</b></h1>
           <hr class="solid">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -45,7 +46,8 @@ export default {
       item: {
         name: "",
         petName: "",
-        photoUrl: ""
+        photoUrl: "",
+        checkups: [{}]
       },
       id: null
     };
@@ -90,7 +92,7 @@ hr.solid {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  margin-top: 10%;
+  margin-top: 8%;
   margin-right: 100px;
   width: 25%;
   text-align: center;
@@ -99,7 +101,7 @@ hr.solid {
 .card2 {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  margin-top: 10%;
+  margin-top: 8%;
   height: 25%;
   width: 50%;
 }
