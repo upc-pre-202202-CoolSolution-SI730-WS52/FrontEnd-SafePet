@@ -164,6 +164,7 @@
       "email": "maria@email.com",
       "appointmentsQuantity": 12,
       "score": 4,
+      "phone": "978 985 654",
       "photoUrl": "https://imgs.deperu.com/mujeres/veterinaria_gato.jpg"
     },
     {
@@ -173,6 +174,7 @@
       "email": "rose@email.com",
       "appointmentsQuantity": 24,
       "score": 2,
+      "phone": "978 985 654",
       "photoUrl": "https://imgs.deperu.com/mujeres/veterinaria_gato.jpg"
     },
     {
@@ -182,6 +184,7 @@
       "email": "carmen@email.com",
       "appointmentsQuantity": 8,
       "score": 5,
+      "phone": "978 985 654",
       "photoUrl": "https://imgs.deperu.com/mujeres/veterinaria_gato.jpg"
     }
   ],
