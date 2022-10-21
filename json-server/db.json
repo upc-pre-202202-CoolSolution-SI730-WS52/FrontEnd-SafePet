@@ -317,6 +317,24 @@
       "veterinarianName": "Carmen White",
       "stars": 5,
       "comment": "The best service I have hired"
+    },
+    {
+      "petOwnerId": 1,
+      "petOwnerName": "Pedro Castillo",
+      "veterinarianId": 1,
+      "veterinarianName": "María Vela",
+      "stars": 4,
+      "comment": "Good service",
+      "id": 5
+    },
+    {
+      "petOwnerId": 1,
+      "petOwnerName": "Pedro Castillo",
+      "veterinarianId": 1,
+      "veterinarianName": "María Vela",
+      "stars": 3,
+      "comment": "Ddasd",
+      "id": 6
     }
   ]
 }
