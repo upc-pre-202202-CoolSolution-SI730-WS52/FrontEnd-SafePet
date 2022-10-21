@@ -2,35 +2,71 @@
   <pv-button class="back" @click="$router.push(`/clients`)">Back</pv-button>
   <div class="big-container">
     <div class="big-container-c">
-      <form action="" class="form">
+      <div class="form">
         <h1 style="margin-bottom:25px; text-align:center">Add new check-up</h1>
         <div class="f2">
           <label for="date">Date</label>
           <hr class="solid">
-          <input type="text" id="date" name="date" placeholder="mm/dd/yyyy">
+          <input type="text" id="date" name="date" required v-model="date2" placeholder="mm/dd/yyyy">
         </div>
 
         <div class="f1">
           <label for="observation">Observations</label>
           <hr class="solid">
-          <input type="text" id="observation" name="observation" placeholder="Write a comment">
+          <input type="text" id="observation" name="observation" required v-model="obs2" placeholder="Write a comment">
         </div>
 
         <div class="f1">
           <label for="prescription">Prescriptions</label>
           <hr class="solid">
-          <input type="text" id="prescription" name="prescription" placeholder="Write a comment">
+          <input type="text" id="prescription" name="prescription" required v-model="pres2" placeholder="Write a comment">
         </div>
 
-        <input type="submit" value="Submit">
-      </form>
+        <pv-button @click="saveCheck">Submit</pv-button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ChecksService } from "../services/checks.service";
+
 export default {
-name: "client-add-check"
+  name: "client-add-check",
+  data() {
+    return {
+      date2: "",
+      obs2: "",
+      pres2: "",
+      id: null,
+      checkId: null,
+      checks: [],
+      checksService: new ChecksService()
+    };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    this.getChecks();
+  },
+  methods: {
+    saveCheck() {
+      var data = {
+        id: this.checkId,
+        clientId: this.id,
+        date: this.date2,
+        obs: this.obs2,
+        pres: this.pres2
+      };
+      this.checksService.createCheck(data).then(this.$router.push("/clients"));
+    },
+    getChecks() {
+      this.checksService.getChecks()
+        .then((response) => {
+          this.checks = response.data;
+          this.checkId = this.checks.length + 1;
+        });
+    }
+  }
 }
 </script>
 
@@ -49,7 +85,7 @@ hr.solid {
 }
 
 .form {
-  margin-top: 10%;
+  margin-top: 5%;
   width: 50%;
 }
 
