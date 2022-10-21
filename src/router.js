@@ -8,6 +8,8 @@ import productComponent from "./products/pages/product-view.component.vue";
 import ProfileComponent from "@/profile/pages/profile.component.vue";
 import VeterinariansListComponent from "./veterinarians-list/pages/veterinarians-list.component.vue";
 import VeterinariansProfileComponent from "./veterinarians-list/pages/veterinarians-profile.component.vue";
+import ReviewsComponent from "./social/reviews/pages/reviews.component.vue";
+import AddReviewComponent from "./social/reviews/pages/add-review/add-review.component.vue";
 
 const routes = [
   { path: "/", component: HomePetOwner },
@@ -18,7 +20,9 @@ const routes = [
   { path: "/products/:category/:id", component: productComponent },
   { path: "/appointments", component: AppointmentsComponent },
   { path: "/vets", component: VeterinariansListComponent },
-  { path: "/vets/:id", component: VeterinariansProfileComponent },
+  { path: "/vets-profile/:id", component: VeterinariansProfileComponent },
+  { path: "/reviews/:id", component: ReviewsComponent},
+  { path: "/new-review/:id", component: AddReviewComponent},
 ];
 
 const history = createWebHistory();

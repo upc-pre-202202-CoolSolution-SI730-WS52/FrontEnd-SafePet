@@ -17,6 +17,9 @@ import Menu from "primevue/menu";
 import Dialog from "primevue/dialog";
 import Toolbar from "primevue/toolbar";
 import InputText from 'primevue/inputtext';
+import Divider from 'primevue/divider';
+import Rating from 'primevue/rating';
+import Textarea from 'primevue/textarea';
 
 const app = createApp(App);
 app.use(PrimeVue);
@@ -29,4 +32,7 @@ app.component("pv-menu", Menu);
 app.component("pv-dialog", Dialog);
 app.component("pv-toolbar", Toolbar);
 app.component("pv-input-text", InputText);
+app.component("pv-divider", Divider);
+app.component("pv-rating", Rating);
+app.component("pv-textarea", Textarea);
 app.mount("#app");
