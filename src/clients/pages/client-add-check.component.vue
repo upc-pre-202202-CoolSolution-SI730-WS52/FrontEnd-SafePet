@@ -7,7 +7,7 @@
         <div class="f2">
           <label for="date">Date</label>
           <hr class="solid">
-          <input type="text" id="date" name="date" required v-model="date2" placeholder="mm/dd/yyyy">
+          <input type="date" id="date" name="date" required v-model="date2" placeholder="mm/dd/yyyy">
         </div>
 
         <div class="f1">

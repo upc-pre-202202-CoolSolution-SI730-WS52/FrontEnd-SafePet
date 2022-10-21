@@ -55,10 +55,7 @@ export default {
   created() {
     this.id = this.$route.params.id;
     this.getInformation();
-    this.checksService = new ChecksService();
-    this.checkups = this.checksService.getChecks().then((response) => {
-      this.checkups = response.data.filter((x => x.clientId == this.id));
-    })
+    this.getChecks();
   },
   methods: {
     getInformation() {
@@ -67,6 +64,24 @@ export default {
         this.item = response.data[0];
         console.log(response.data);
       });
+    },
+    getChecks() {
+      this.checksService = new ChecksService();
+      this.checkups = this.checksService.getChecks().then((response) => {
+        this.checkups = response.data
+          .filter((x => x.clientId == this.id))
+          .sort((x, x2) => {
+            if (x.date > x2.date) {
+              return 1;
+            }
+
+            if (x.date < x2.date) {
+              return -1;
+            }
+
+            return 0;
+          });
+      })
     }
   }
 };
