@@ -50,7 +50,7 @@
     },
     {
       "title": "Bentto Cat Super Premium",
-      "price": 15.90,
+      "price": 15.9,
       "author": "Ryan",
       "image": "bentto.jpg",
       "category": "cat",
@@ -58,25 +58,23 @@
     },
     {
       "title": "Trixie Arena de Silice Simple and Clean para conejos 400g",
-      "price": 10.90,
+      "price": 10.9,
       "author": "Ryan",
       "image": "rabbit.png",
       "category": "other",
       "id": 8
-
     },
     {
       "title": "Jaula Conejera 102*53*46cm",
-      "price": 360.00,
+      "price": 360,
       "author": "Ryan",
       "image": "Jaula.png",
       "category": "other",
       "id": 9
-
     },
     {
       "title": "Trixie Casita de madera para roedores",
-      "price": 30.90,
+      "price": 30.9,
       "author": "Ryan",
       "image": "Casa.png",
       "category": "other",
@@ -84,7 +82,7 @@
     },
     {
       "title": "Whiskas Adults",
-      "price": 30.00,
+      "price": 30,
       "author": "Don Pepe",
       "image": "WhiskasFish.jpg",
       "category": "cat",
@@ -92,7 +90,7 @@
     },
     {
       "title": "Ricocan Bits",
-      "price": 20.00,
+      "price": 20,
       "author": "Don Pepe",
       "image": "RicocanBits.jpg",
       "category": "dog",
@@ -123,14 +121,14 @@
     {
       "id": 1,
       "name": "Alonso Poma",
-      "score": 5.0,
+      "score": 5,
       "image": "https://i0.wp.com/revista.weepec.com/wp-content/uploads/2021/02/vet-and-pet-EESKSLX.jpg",
       "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7802.697478788431!2d-77.07652748935323!3d-12.088261200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9b8ebc551c3%3A0xa09e535f5953b183!2sTerra%20Pets%20-%20Consultorio%20Veterinario!5e0!3m2!1ses!2spe!4v1664259713122!5m2!1ses!2spe"
     },
     {
       "id": 2,
       "name": "Carmen Lopez",
-      "score": 4.0,
+      "score": 4,
       "image": "https://imgs.deperu.com/mujeres/veterinaria_gato.jpg",
       "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7802.789310335075!2d-77.05607533022466!3d-12.085112200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f65722d2b3%3A0x48bb049b20ab6e24!2sCL%C3%8DNICA%20VETERINARIA%20QSVET!5e0!3m2!1ses!2spe!4v1664259824921!5m2!1ses!2spe"
     }
@@ -155,7 +153,6 @@
       "photoUrl": "https://www.superprof.co/imagenes/anuncios/profesor-home-chico-anos-simpatico-comprometido-con-ganas-transmitir-pasion-por-ingles-certificado-con-otras-materias.jpg"
     }
   ],
-
   "veterinarians": [
     {
       "id": 1,
@@ -188,7 +185,6 @@
       "photoUrl": "https://imgs.deperu.com/mujeres/veterinaria_gato.jpg"
     }
   ],
-
   "appointments": [
     {
       "id": 1,
@@ -200,7 +196,6 @@
       "date": "12/02/2022",
       "image": "https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg?w=2000"
     },
-
     {
       "id": 2,
       "petOwnerId": 2,
@@ -211,7 +206,6 @@
       "date": "18/08/2022",
       "image": "https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg?w=2000"
     },
-
     {
       "id": 3,
       "petOwnerId": 3,
@@ -233,14 +227,52 @@
       "image": "https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg?w=2000"
     }
   ],
-  "profile":[
+  "profile": [
     {
-      "id":1,
-      "name":"Mark Elliot Zuckerberg",
-      "birthday":"17/12/1983",
-      "phone":983093091,
-      "email":"marksuck@gmail.com",
+      "id": 1,
+      "name": "Mark Elliot Zuckerberg",
+      "birthday": "17/12/1983",
+      "phone": 983093091,
+      "email": "marksuck@gmail.com",
       "photoUrl": "https://lacomunapink.files.wordpress.com/2012/12/mark_zuckerberg_at_the_37th_g8_summit_in_deauville_018_v1.jpg?w=640"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "petOwnerId": 1,
+      "petOwnerName": "Scarlet Sanos",
+      "veterinarianId": 1,
+      "veterinarianName": "María Vela",
+      "stars": 4,
+      "comment": "The best service I have hired"
+    },
+    {
+      "id": 2,
+      "petOwnerId": 2,
+      "petOwnerName": "Rodrigo Ugarte",
+      "veterinarianId": 1,
+      "veterinarianName": "María Vela",
+      "stars": 3,
+      "comment": "The best service I have hired"
+    },
+    {
+      "id": 3,
+      "petOwnerId": 1,
+      "petOwnerName": "Scarlet Sanos",
+      "veterinarianId": 2,
+      "veterinarianName": "Rose Doe",
+      "stars": 2,
+      "comment": "The best service I have hired"
+    },
+    {
+      "id": 4,
+      "petOwnerId": 1,
+      "petOwnerName": "Scarlet Sanos",
+      "veterinarianId": 3,
+      "veterinarianName": "Carmen White",
+      "stars": 5,
+      "comment": "The best service I have hired"
     }
   ]
 }

@@ -41,7 +41,7 @@
       </div>
 
       <div class="go-to-reviews">
-       <pv-button @click="$router.push('/')" >Reviews</pv-button>
+       <pv-button @click="$router.push(`/reviews/${veterinary.id}`)" >Reviews</pv-button>
       </div>
     </div>
   </div>
