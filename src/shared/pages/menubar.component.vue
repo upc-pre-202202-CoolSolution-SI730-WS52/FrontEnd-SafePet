@@ -37,7 +37,7 @@ export default {
         {
           label: "My Clients",
           icon: "pi pi-users",
-          url: "/clients"
+          url: "/clients",
         },
         {
           label: "My Appointments",
@@ -47,6 +47,7 @@ export default {
         {
           label: "Messages",
           icon: "pi pi-telegram",
+          url: "/messages",
         },
       ],
     };
@@ -56,7 +57,7 @@ export default {
 
 <style scoped>
 .menubar-container {
-  margin: 20px 20px 0px -9px;
+  margin: 20px 20px 0 -9px;
 }
 .p-menu-list {
   height: 900px;

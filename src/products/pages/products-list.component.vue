@@ -28,7 +28,12 @@
           </template>
           <template #footer>
             <div class="p-card-footer">
-              <pv-button label="See more" @click="$router.push(`/products/${product.category}/${product.id}`)"/>
+              <pv-button
+                label="See more"
+                @click="
+                  $router.push(`/products/${product.category}/${product.id}`)
+                "
+              />
             </div>
           </template>
         </pv-card>
@@ -64,7 +69,6 @@ export default {
     getProductsByCategory: function (category) {
       this.productsService.getProductsByCategory(category).then((response) => {
         this.products = response.data;
-
       });
     },
   },
@@ -104,7 +108,6 @@ export default {
   justify-content: space-evenly;
   align-items: flex-end;
   font-size: 30px;
-
 }
 .card-header {
   display: flex;
