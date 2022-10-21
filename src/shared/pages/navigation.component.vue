@@ -3,7 +3,7 @@
     <pv-toolbar>
       <template #start>
         <div class="navigation-container-left flex align-items-center">
-          <img class="logo" src="../../assets/logo.png" alt="logo" />
+          <img class="logo" src="https://raw.githubusercontent.com/GabrielGomezDlc/PP-Daop/main/src/assets/logo.png" alt="logo" />
           <h1 class="logo-text ml-3">SafePet</h1>
         </div>
       </template>

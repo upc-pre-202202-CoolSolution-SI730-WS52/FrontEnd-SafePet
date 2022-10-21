@@ -15,8 +15,8 @@
               <div class="card-image">
                 <img
                   class="image-card"
-                  :src="'../../src/assets/' + product.image"
-                  v-bind:alt="product.image"
+                  :src="product.image"
+                  v-bind:alt="product.name"
                 />
               </div>
             </div>

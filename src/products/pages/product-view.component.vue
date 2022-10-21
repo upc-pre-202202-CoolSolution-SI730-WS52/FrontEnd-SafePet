@@ -8,8 +8,8 @@
       <div class="card-component">
         <img
           class="image-card"
-          :src="'../../src/assets/' + item.image"
-          v-bind:alt="item.image"
+          :src="item.image"
+          v-bind:alt="item.name"
         />
         <h1>
           {{ item.title }}

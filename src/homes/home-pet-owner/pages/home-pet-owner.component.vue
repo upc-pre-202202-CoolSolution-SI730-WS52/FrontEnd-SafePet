@@ -40,7 +40,7 @@
               <h2>S/. {{ product.price }}</h2>
             </div>
             <div class="images">
-              <img :src="'../../src/assets/' + product.image" :alt="product.name" />
+              <img  :src="product.image" v-bind:alt="product.name" />
             </div>
           </div>
         </div>
