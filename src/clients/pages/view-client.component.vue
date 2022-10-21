@@ -10,24 +10,15 @@
         </div>
       </div>
       <div class="card2">
-        <div class="container">
-          <h1 style="margin-bottom:10px; text-align:center"><b>Date: 12-08-2022</b></h1>
+        <div class="container" v-for="check in checkups">
+          <hr class="dashed">
+          <h1 style="margin-bottom:10px; text-align:center"><b>Date: {{ check.date }}</b></h1>
           <h1><b>Observations</b></h1>
           <hr class="solid">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec lorem nulla, sollicitudin eget tellus et, volutpat
-            tincidunt tellus. Donec bibendum, massa a sollicitudin
-            dapibus, dolor nisl accumsan ipsum, in pellentesque eros
-            nibh ac purus. Curabitur placerat maximus neque, sed
-            fermentum velit posuere pretium.</p>
+          <p>{{ check.obs }}</p>
           <h1 style="margin-top:30px"><b>Prescription</b></h1>
           <hr class="solid">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec lorem nulla, sollicitudin eget tellus et, volutpat
-            tincidunt tellus. Donec bibendum, massa a sollicitudin
-            dapibus, dolor nisl accumsan ipsum, in pellentesque eros
-            nibh ac purus. Curabitur placerat maximus neque, sed
-            fermentum velit posuere pretium.</p>
+          <p>{{ check.pres }}</p>
         </div>
       </div>
     </div>
@@ -37,6 +28,7 @@
 
 <script>
 import { ClientsService } from "@/clients/services/clients.service";
+import { ChecksService } from "../services/checks.service";
 
 export default {
   name: "ViewClientComponent",
@@ -46,15 +38,27 @@ export default {
       item: {
         name: "",
         petName: "",
-        photoUrl: "",
-        checkups: [{}]
+        photoUrl: ""
       },
+      checkups: [],
+      check: {
+        id: 0,
+        clientId: 0,
+        date: "",
+        obs: "",
+        pres: ""
+      },
+      checksService: null,
       id: null
     };
   },
   created() {
     this.id = this.$route.params.id;
-    this.getInformation(this.id);
+    this.getInformation();
+    this.checksService = new ChecksService();
+    this.checkups = this.checksService.getChecks().then((response) => {
+      this.checkups = response.data.filter((x => x.clientId == this.id));
+    })
   },
   methods: {
     getInformation() {
@@ -72,6 +76,11 @@ export default {
 hr.solid {
   border-top: 3px solid #bbb;
   border-color: black;
+}
+
+hr.dashed {
+  border-top: 3px dashed #bbb;
+  margin: 20px;
 }
 
 .big-container {
@@ -112,6 +121,7 @@ hr.solid {
 
 .container {
   padding: 2px 16px;
+  margin: 20px;
 }
 .back {
   margin: 20px;
