@@ -10,6 +10,7 @@ import VeterinariansListComponent from "./veterinarians-list/pages/veterinarians
 import VeterinariansProfileComponent from "./veterinarians-list/pages/veterinarians-profile.component.vue";
 import ReviewsComponent from "./social/reviews/pages/reviews.component.vue";
 import AddReviewComponent from "./social/reviews/pages/add-review/add-review.component.vue";
+import ViewClientComponent from "@/clients/pages/view-client.component.vue";
 
 const routes = [
   { path: "/", component: HomePetOwner },
@@ -23,6 +24,7 @@ const routes = [
   { path: "/vets-profile/:id", component: VeterinariansProfileComponent },
   { path: "/reviews/:id", component: ReviewsComponent},
   { path: "/new-review/:id", component: AddReviewComponent},
+  { path: "/clients/:id", component: ViewClientComponent}
 ];
 
 const history = createWebHistory();
