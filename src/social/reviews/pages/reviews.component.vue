@@ -1,55 +1,73 @@
 <template>
-  <div class="container">
-    <div class="container-header">
-      <h1><i class="pi pi-angle-left" @click="$router.push(`/vets-profile/${veterinary.id}`)"></i>Veterinary Reviews</h1>
-    </div>
 
-    <pv-card class="card">
-      <template #content>
-        <div class="body-content">
-          <div class="container-body_image">
-            <img  :src="veterinary.photoUrl" :alt="veterinary.name" />
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
+      </div>
+      <div class="col-10 ">
+
+        <div class="container">
+          <div class="container-header">
+            <h1><i class="pi pi-angle-left" @click="$router.push(`/vets-profile/${veterinary.id}`)"></i>Veterinary Reviews</h1>
           </div>
 
-          <div class="container-body_text">
-            <h2>Vet. {{ veterinary.name }}</h2>
-            <p>Appointments: {{veterinary.appointmentsQuantity}}</p>
-            <p>Score: {{ veterinary.score }} <i class="pi pi-star-fill" ></i></p>
+          <pv-card class="card">
+            <template #content>
+              <div class="body-content">
+                <div class="container-body_image">
+                  <img  :src="veterinary.photoUrl" :alt="veterinary.name" />
+                </div>
+
+                <div class="container-body_text">
+                  <h2>Vet. {{ veterinary.name }}</h2>
+                  <p>Appointments: {{veterinary.appointmentsQuantity}}</p>
+                  <p>Score: {{ veterinary.score }} <i class="pi pi-star-fill" ></i></p>
+                </div>
+              </div>
+            </template>
+          </pv-card>
+
+          <pv-divider align="left" class="divider">
+            <span class="p-tag">Reviews</span>
+          </pv-divider>
+
+          <div class="container-body" v-for="review in reviews" :key="review.id">
+            <div class="card-apo">
+              <div class="info">
+                <h1>{{ review.petOwnerName}}</h1>
+                <h2>{{ review.comment }}</h2>
+              </div>
+              <div class="stars">
+                <h2><i class="pi pi-star-fill" ></i> {{ review.stars }} / </h2><h3>5</h3>
+              </div>
+            </div>
           </div>
-        </div>
-      </template>
-    </pv-card>
 
-    <pv-divider align="left" class="divider">
-      <span class="p-tag">Reviews</span>
-    </pv-divider>
+          <div class="go-to-add-review">
+            <pv-button @click="$router.push(`/new-review/${veterinary.id}`)" >Add Review</pv-button>
+          </div>
 
-    <div class="container-body" v-for="review in reviews" :key="review.id">
-      <div class="card-apo">
-        <div class="info">
-          <h1>{{ review.petOwnerName}}</h1>
-          <h2>{{ review.comment }}</h2>
         </div>
-        <div class="stars">
-          <h2><i class="pi pi-star-fill" ></i> {{ review.stars }} / </h2><h3>5</h3>
-        </div>
+
       </div>
     </div>
-
-    <div class="go-to-add-review">
-    <pv-button @click="$router.push(`/new-review/${veterinary.id}`)" >Add Review</pv-button>
   </div>
 
-  </div>
+
 
 </template>
 
 <script>
 import {ReviewsServices} from "../services/reviews.services";
 import {VeterinariansServices} from "../../../veterinarians-list/services/veterinarians.services";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
 
 export default {
   name: "reviews",
+  components: { NavigationComponent, MenubarComponent },
   data(){
     return{
       id:null,

@@ -1,4 +1,5 @@
 <template>
+  <!--
   <div class="w-full h-screen">
     <navigation-component></navigation-component>
     <div class="row flex">
@@ -6,10 +7,10 @@
         <menubar-component></menubar-component>
       </div>
       <div class="col-10 ">
-        <router-view />
+        --><router-view /><!--
       </div>
     </div>
-  </div>
+  </div>-->
 </template>
 
 <script>

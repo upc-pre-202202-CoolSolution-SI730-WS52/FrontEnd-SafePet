@@ -1,48 +1,64 @@
 <template>
-  <div class="big-container pl-5 mt-3">
-    <div class="title-label">
-      <h1 class="back" @click="$router.push('/products')">> {{ category }}</h1>
-      <br />
-      <pv-button> New product</pv-button>
-      <br />
-    </div>
-    <br />
-    <div>
-      <div class="cards">
-        <pv-card v-for="product in products" v-bind:key="product.id">
-          <template #header>
-            <div class="card-header">
-              <div class="card-image">
-                <img
-                  class="image-card"
-                  :src="product.image"
-                  v-bind:alt="product.name"
-                />
-              </div>
+
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
+      </div>
+      <div class="col-10 ">
+        <div class="big-container pl-5 mt-3">
+          <div class="title-label">
+            <h1 class="back" @click="$router.push('/products')">> {{ category }}</h1>
+            <br />
+            <pv-button> New product</pv-button>
+            <br />
+          </div>
+          <br />
+          <div>
+            <div class="cards">
+              <pv-card v-for="product in products" v-bind:key="product.id">
+                <template #header>
+                  <div class="card-header">
+                    <div class="card-image">
+                      <img
+                          class="image-card"
+                          :src="product.image"
+                          v-bind:alt="product.name"
+                      />
+                    </div>
+                  </div>
+                </template>
+                <template #title>
+                  <h5 class="line-height-2">
+                    {{ product.title }}
+                  </h5>
+                </template>
+                <template #footer>
+                  <div class="p-card-footer">
+                    <pv-button label="See more" @click="$router.push(`/products/${product.category}/${product.id}`)"/>
+                  </div>
+                </template>
+              </pv-card>
             </div>
-          </template>
-          <template #title>
-            <h5 class="line-height-2">
-              {{ product.title }}
-            </h5>
-          </template>
-          <template #footer>
-            <div class="p-card-footer">
-              <pv-button label="See more" @click="$router.push(`/products/${product.category}/${product.id}`)"/>
-            </div>
-          </template>
-        </pv-card>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+
 </template>
 
 <script>
 import { ProductsService } from "../services/products.service";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
+
 
 export default {
   name: "ProductsListComponent",
-  components: {},
+  components: { NavigationComponent, MenubarComponent },
 
   data() {
     return {

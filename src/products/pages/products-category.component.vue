@@ -1,79 +1,95 @@
 <template>
-  <div class="product-container pl-5 mt-3">
-    <div class="top-container">
-      <label class="top-container-title" for="ProductList"> Products</label>
-      <h3>Select a product category</h3>
-    </div>
-
-    <br />
-    <div class="cards justify-content-center">
-      <div class="category-card">
-        <div class="category-card-container">
-          <img class="image" src="@/assets/dogs.png" alt="category" />
-        </div>
-        <div class="category-card-container ml-3">
-          <div class="ml-3">
-            <h1>Dogs</h1>
-            <h4>Cant: {{ countDog }}</h4>
-          </div>
-        </div>
-        <div class="category-card-container flex justify-content-end mr-6">
-          <pv-button
-              class="p-button-text p-button-lg"
-              @click="$router.push('/products/dog')"
-              icon="pi pi-arrow-right"
-          ></pv-button>
-        </div>
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
       </div>
-      <br />
-      <div class="category-card">
-        <div class="category-card-container">
-          <img class="image" src="@/assets/cat.jpg" alt="category" />
-        </div>
-        <div class="category-card-container ml-3">
-          <div class="ml-3">
-            <h1>Cats</h1>
-            <h4>Cant: {{ countCat }}</h4>
+      <div class="col-10 ">
+        <div class="product-container pl-5 mt-3">
+          <div class="top-container">
+            <label class="top-container-title" for="ProductList"> Products</label>
+            <h3>Select a product category</h3>
           </div>
-        </div>
-        <div class="category-card-container flex justify-content-end mr-6">
-          <pv-button
-              class="p-button-text p-button-lg"
-              @click="$router.push('/products/cat')"
-              icon="pi pi-arrow-right"
-          ></pv-button>
-        </div>
-      </div>
 
-      <br />
-      <div class="category-card">
-        <div class="category-card-container">
-          <img class="image" src="@/assets/Other.jpg" alt="category" />
-        </div>
-        <div class="category-card-container ml-3">
-          <div class="ml-3">
-            <h1>Other</h1>
-            <h4>Cant: {{ countOther }}</h4>
+          <br />
+          <div class="cards justify-content-center">
+            <div class="category-card">
+              <div class="category-card-container">
+                <img class="image" src="@/assets/dogs.png" alt="category" />
+              </div>
+              <div class="category-card-container ml-3">
+                <div class="ml-3">
+                  <h1>Dogs</h1>
+                  <h4>Cant: {{ countDog }}</h4>
+                </div>
+              </div>
+              <div class="category-card-container flex justify-content-end mr-6">
+                <pv-button
+                    class="p-button-text p-button-lg"
+                    @click="$router.push('/products/dog')"
+                    icon="pi pi-arrow-right"
+                ></pv-button>
+              </div>
+            </div>
+            <br />
+            <div class="category-card">
+              <div class="category-card-container">
+                <img class="image" src="@/assets/cat.jpg" alt="category" />
+              </div>
+              <div class="category-card-container ml-3">
+                <div class="ml-3">
+                  <h1>Cats</h1>
+                  <h4>Cant: {{ countCat }}</h4>
+                </div>
+              </div>
+              <div class="category-card-container flex justify-content-end mr-6">
+                <pv-button
+                    class="p-button-text p-button-lg"
+                    @click="$router.push('/products/cat')"
+                    icon="pi pi-arrow-right"
+                ></pv-button>
+              </div>
+            </div>
+
+            <br />
+            <div class="category-card">
+              <div class="category-card-container">
+                <img class="image" src="@/assets/Other.jpg" alt="category" />
+              </div>
+              <div class="category-card-container ml-3">
+                <div class="ml-3">
+                  <h1>Other</h1>
+                  <h4>Cant: {{ countOther }}</h4>
+                </div>
+              </div>
+              <div class="category-card-container flex justify-content-end mr-6">
+                <pv-button
+                    class="p-button-text p-button-lg"
+                    icon="pi pi-arrow-right"
+                    @click="$router.push('/products/other')"
+                >
+                </pv-button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="category-card-container flex justify-content-end mr-6">
-          <pv-button
-              class="p-button-text p-button-lg"
-              icon="pi pi-arrow-right"
-              @click="$router.push('/products/other')"
-          >
-          </pv-button>
         </div>
       </div>
     </div>
   </div>
+
+
+
 </template>
 
 <script>
 import { ProductsService } from "@/products/services/products.service";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
+
 export default {
   name: "ProductsCategoryComponent",
-  components: {},
+  components: { NavigationComponent, MenubarComponent },
   data() {
     return {
       products: [],

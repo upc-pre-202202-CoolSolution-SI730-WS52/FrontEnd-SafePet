@@ -1,38 +1,55 @@
 <template>
-  <pv-button class="back" @click="$router.push(`/clients`)">Back</pv-button>
-  <div class="big-container">
-    <div class="big-container-c">
-      <div class="form">
-        <h1 style="margin-bottom:25px; text-align:center">Add new check-up</h1>
-        <div class="f2">
-          <label for="date">Date</label>
-          <hr class="solid">
-          <input type="date" id="date" name="date" required v-model="date2" placeholder="mm/dd/yyyy">
-        </div>
 
-        <div class="f1">
-          <label for="observation">Observations</label>
-          <hr class="solid">
-          <input type="text" id="observation" name="observation" required v-model="obs2" placeholder="Write a comment">
-        </div>
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
+      </div>
+      <div class="col-10 ">
 
-        <div class="f1">
-          <label for="prescription">Prescriptions</label>
-          <hr class="solid">
-          <input type="text" id="prescription" name="prescription" required v-model="pres2" placeholder="Write a comment">
-        </div>
+        <div class="big-container">
+          <pv-button class="back" @click="$router.push(`/clients`)">Back</pv-button>
+          <div class="big-container-c">
+            <div class="form">
+              <h1 style="margin-bottom:25px; text-align:center">Add new check-up</h1>
+              <div class="f2">
+                <label for="date">Date</label>
+                <hr class="solid">
+                <input type="date" id="date" name="date" required v-model="date2" placeholder="mm/dd/yyyy">
+              </div>
 
-        <pv-button @click="saveCheck">Submit</pv-button>
+              <div class="f1">
+                <label for="observation">Observations</label>
+                <hr class="solid">
+                <input type="text" id="observation" name="observation" required v-model="obs2" placeholder="Write a comment">
+              </div>
+
+              <div class="f1">
+                <label for="prescription">Prescriptions</label>
+                <hr class="solid">
+                <input type="text" id="prescription" name="prescription" required v-model="pres2" placeholder="Write a comment">
+              </div>
+
+              <pv-button @click="saveCheck">Submit</pv-button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+
 </template>
 
 <script>
 import { ChecksService } from "../services/checks.service";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
 
 export default {
   name: "client-add-check",
+  components: { NavigationComponent, MenubarComponent },
   data() {
     return {
       date2: "",

@@ -13,6 +13,7 @@ import AddReviewComponent from "./social/reviews/pages/add-review/add-review.com
 import ViewClientComponent from "@/clients/pages/view-client.component.vue";
 import ClientAddCheckComponent from "@/clients/pages/client-add-check.component.vue";
 
+
 const routes = [
   { path: "/", component: HomePetOwner },
   { path: "/profile", component: ProfileComponent},
