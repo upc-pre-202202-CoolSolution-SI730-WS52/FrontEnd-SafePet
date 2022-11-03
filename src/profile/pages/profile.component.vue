@@ -1,43 +1,60 @@
 <template>
-  <div class="myprofile-container">
-    <div class="container-body">
 
-      <div class="card" >
-        <div class="card-content" v-for="profile in profile" :key="profile.id">
-          <div class="container-title">
-            <div clas="container-title-image">
-              <img alt="profile" :src="profile.photoUrl"/>
-            </div>
-            <div class="container-title-name">
-              <h1>{{profile.name}}</h1>
-            </div>
-          </div>
-          <div class="container-body-text">
-            <div class="icon">
-              <i class="pi pi-calendar"></i>
-              <p>{{profile.birthday}}</p>
-            </div>
-            <div class="icon">
-              <i class="pi pi-phone"></i>
-              <p>{{profile.phone}}</p>
-            </div>
-            <div class="icon">
-              <i class="pi pi-envelope"></i>
-              <p>{{profile.email}}</p>
-            </div>
-          </div>
-        </div>
+ <div class="w-full h-screen">
+   <navigation-component></navigation-component>
+   <div class="row flex">
+     <div class="col-2">
+       <menubar-component></menubar-component>
+     </div>
+     <div class="col-10 ">
+       <div class="myprofile-container">
+         <div class="container-body">
+
+           <div class="card" >
+             <div class="card-content" v-for="profile in profile" :key="profile.id">
+               <div class="container-title">
+                 <div clas="container-title-image">
+                   <img alt="profile" :src="profile.photoUrl"/>
+                 </div>
+                 <div class="container-title-name">
+                   <h1>{{profile.name}}</h1>
+                 </div>
+               </div>
+               <div class="container-body-text">
+                 <div class="icon">
+                   <i class="pi pi-calendar"></i>
+                   <p>{{profile.birthday}}</p>
+                 </div>
+                 <div class="icon">
+                   <i class="pi pi-phone"></i>
+                   <p>{{profile.phone}}</p>
+                 </div>
+                 <div class="icon">
+                   <i class="pi pi-envelope"></i>
+                   <p>{{profile.email}}</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
       </div>
     </div>
   </div>
+
+
+
+
 </template>
 
 <script>
 import {ProfileServices} from "../services/profile.services.js";
-
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name:'Profile',
+  components: { NavigationComponent, MenubarComponent },
   data(){
     return{
       profile:null,

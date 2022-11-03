@@ -1,15 +1,5 @@
 <template>
-  <link
-    href="https://fonts.googleapis.com/css?family=IBM Plex Sans"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+
 
   <div class="w-full h-screen">
     <navigation-component></navigation-component>
@@ -28,12 +18,30 @@
                 <div class="card-apo">
                   <div class="info">
                     <h1>Appointment #{{ appo.number }}</h1>
-                    <h2>Vet. {{ appo.veterinarianName }}</h2>
+                    <h2>Vet. {{ appo.petOwnerName }}</h2>
                     <h2 class="date">Date: {{ appo.date }}</h2>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div class="my-clients">
+              <h1 class="container-title" @click="$router.push(`/clients`)">
+                My Clients
+              </h1>
+              <div v-for="client in clients" :key="client.id">
+                <div class="card" @click="$router.push(`/clients/${client.id}`)" >
+                  <div class="product">
+                    <h1>{{ client.name }}</h1>
+                    <p>{{ client.petName }}</p>
+                  </div>
+                  <div class="images">
+                    <img  :src="client.photoUrl" v-bind:alt="client.name" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
             <div class="most-purchased-products">
               <h1 class="container-title" @click="$router.push(`/products`)">
@@ -54,31 +62,13 @@
             </div>
           </div>
 
+
           <div class="container">
             <div id="veterinarians-near-you">
-              <h1 class="container-title">Veterinarians near you</h1>
-              <div v-for="vet in veterinarians_near_you" :key="vet.id">
-                <div class="card">
-                  <div class="product">
-                    <h1>{{ vet.name }}</h1>
-                    <h2 style="font-weight: lighter">
-                      Score: {{ vet.score }} <i class="fa-solid fa-star"></i>
-                    </h2>
-                  </div>
-                  <div class="images-vet">
-                    <img :src="vet.image" :alt="vet.name" />
-                  </div>
-                </div>
-              </div>
+              <h1 class="container-title">Messages</h1>
+
             </div>
 
-            <div class="maps-location">
-              <iframe
-                  src="https://www.google.com/maps/d/embed?mid=1Kab6RTglf8Rj1X6cjxp2TUMDq2l7EpI&hl=es&ehbc=2E312F"
-                  width="450"
-                  height="280"
-              ></iframe>
-            </div>
           </div>
         </div>
       </div>
@@ -86,47 +76,50 @@
   </div>
 
 
-
 </template>
 
 <script>
-import { AppointmentsServices } from "../../../appointments/services/appointments.services";
-import { MostPurchasedProductsServices } from "../services/most-purchased-products-services";
-import { VeterinariansNearYouServices } from "../services/veterinarians-near-you-services";
-import NavigationComponent from "@/shared/pages/navigation.component.vue";
-import MenubarComponent from "@/shared/pages/menubar-pet-owners.component.vue";
+import {AppointmentsServices} from "../../../appointments/services/appointments.services";
+import {MostPurchasedProductsServices} from "../../home-pet-owner/services/most-purchased-products-services";
+import {ClientsService} from "../../../clients/services/clients.service";
+
+import NavigationComponent from "../../../shared/pages/navigation.component.vue";
+import MenubarComponent from "../../../shared/pages/menubar.component.vue";
+
 
 export default {
-  name: "HomePetOwner",
+  name: "home-vets.component",
   components: { NavigationComponent, MenubarComponent },
   data() {
     return {
       appointments: null,
       most_purchased_products: null,
-      veterinarians_near_you: null,
+      clients: null,
       currentUser: 1,
       appointmentIndexer: 0,
+
+
 
     };
   },
   created() {
     new AppointmentsServices()
-      .getAppointmentsByField("petOwnerId", this.currentUser)
-      .then((response) => {
-        this.appointments = response.data;
-      });
+        .getAppointmentsByField("veterinarianId", this.currentUser)
+        .then((response) => {
+          this.appointments = response.data;
+        });
     new MostPurchasedProductsServices()
-      .getMostPurchasedProducts()
-      .then((response) => {
-        this.most_purchased_products = response.data;
-      });
-    new VeterinariansNearYouServices()
-      .getVeterinariansNearYou()
-      .then((response) => {
-        this.veterinarians_near_you = response.data;
-      });
+        .getMostPurchasedProducts()
+        .then((response) => {
+          this.most_purchased_products = response.data;
+        });
+    new ClientsService()
+        .getClients()
+        .then((response) => {
+          this.clients = response.data;
+        });
   },
-};
+}
 </script>
 
 <style scoped>
@@ -238,13 +231,17 @@ img {
 .container {
   display: flex;
   margin-top: 2px;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .container-title {
   font-size: 25px;
 }
+.my-clients{
+  margin-left: 100px;
+}
+
 .most-purchased-products {
-  margin-left: 400px;
+  margin-left: 100px;
 }
 
 .maps-location {

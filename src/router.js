@@ -12,10 +12,12 @@ import ReviewsComponent from "./social/reviews/pages/reviews.component.vue";
 import AddReviewComponent from "./social/reviews/pages/add-review/add-review.component.vue";
 import ViewClientComponent from "@/clients/pages/view-client.component.vue";
 import ClientAddCheckComponent from "@/clients/pages/client-add-check.component.vue";
+import HomeVetsComponent from "./homes/home-vets/pages/home-vets.component.vue";
 
 
 const routes = [
   { path: "/", component: HomePetOwner },
+  { path: "/home-vets", component: HomeVetsComponent },
   { path: "/profile", component: ProfileComponent},
   { path: "/products", component: ProductsCategoryComponent },
   { path: "/products/:category", component: Dogproducts },
