@@ -1,57 +1,78 @@
 <template>
-  <div class="myprofile-container">
 
-     <div class="container-header">
-       <h1><i class="pi pi-angle-left" @click="$router.push(`/vets`)"></i>Veterinary Profile </h1>
-     </div>
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
+      </div>
+      <div class="col-10 ">
 
-    <div class="container-body">
+        <div class="myprofile-container">
 
-      <div class="card" >
-        <div class="card-content" >
-          <div class="container-title">
-            <div clas="container-title-image">
-              <img alt="profile" :src="veterinary.photoUrl"/>
-            </div>
-            <div class="container-title-name">
-              <h1>{{veterinary.name}}</h1>
-            </div>
+          <div class="container-header">
+            <h1><i class="pi pi-angle-left" @click="$router.push(`/vets`)"></i>Veterinary Profile </h1>
           </div>
-          <div class="container-body-text">
-            <div class="icon">
-              <i class="pi pi-calendar"></i>
-              <p>{{veterinary.appointmentsQuantity}} Appointments</p>
-            </div>
-            <div class="icon">
-              <i class="pi pi-star-fill"></i>
-              <div class="stars">
-              <p>{{veterinary.score}} /</p><p class="stars-limit"> 5</p>
+
+          <div class="container-body">
+
+            <div class="card" >
+              <div class="card-content" >
+                <div class="container-title">
+                  <div clas="container-title-image">
+                    <img alt="profile" :src="veterinary.photoUrl"/>
+                  </div>
+                  <div class="container-title-name">
+                    <h1>{{veterinary.name}}</h1>
+                  </div>
+                </div>
+                <div class="container-body-text">
+                  <div class="icon">
+                    <i class="pi pi-calendar"></i>
+                    <p>{{veterinary.appointmentsQuantity}} Appointments</p>
+                  </div>
+                  <div class="icon">
+                    <i class="pi pi-star-fill"></i>
+                    <div class="stars">
+                      <p>{{veterinary.score}} /</p><p class="stars-limit"> 5</p>
+                    </div>
+                  </div>
+                  <div class="icon">
+                    <i class="pi pi-phone"></i>
+                    <p>{{veterinary.phone}}</p>
+                  </div>
+                  <div class="icon">
+                    <i class="pi pi-envelope"></i>
+                    <p>{{veterinary.email}}</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="icon">
-              <i class="pi pi-phone"></i>
-              <p>{{veterinary.phone}}</p>
-            </div>
-            <div class="icon">
-              <i class="pi pi-envelope"></i>
-              <p>{{veterinary.email}}</p>
+
+            <div class="go-to-reviews">
+              <pv-button @click="$router.push(`/reviews/${veterinary.id}`)" >Reviews</pv-button>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="go-to-reviews">
-       <pv-button @click="$router.push(`/reviews/${veterinary.id}`)" >Reviews</pv-button>
       </div>
     </div>
   </div>
+
+
+
+
+
 </template>
 
 <script>
 import {VeterinariansServices} from "../services/veterinarians.services";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
 
 export default {
   name: "veterinarians-profile",
+  components: {MenuBarPetOwnerComponent, NavigationComponent},
   data(){
     return{
       id:null,

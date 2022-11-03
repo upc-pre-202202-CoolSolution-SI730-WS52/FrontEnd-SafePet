@@ -336,5 +336,31 @@
       "comment": "Ddasd",
       "id": 6
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "maria@email.com",
+      "password": "maria12",
+      "role": "vet"
+    },
+    {
+      "id": 2,
+      "email": "rose@email.com",
+      "password": "rose12",
+      "role": "vet"
+    },
+    {
+      "id": 3,
+      "email": "scarlet@email.com",
+      "password": "scarlet12",
+      "role": "petOwner"
+    },
+    {
+      "id": 4,
+      "email": "piero@email.com",
+      "password": "piero12",
+      "role": "petOwner"
+    }
   ]
 }

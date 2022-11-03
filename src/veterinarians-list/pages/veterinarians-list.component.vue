@@ -1,42 +1,60 @@
 <template>
-  <div class="vets-container">
-    <div class="container-header">
-    <h1>Veterinarians</h1>
-    <div class="col-12 md:col-4">
-      <div class="p-inputgroup">
-        <pv-button label="Search" @click="searchVet()"></pv-button>
-        <pv-input-text v-model="vetSearch" placeholder="Search veterinary" @keyup="searchVet()"></pv-input-text>
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
       </div>
-    </div>
-    </div>
+      <div class="col-10 ">
 
-
-    <div class="container-body" v-for="vet in veterinarians" v-bind:key="vet.id">
-      <pv-card class="card" @click="$router.push(`/vets-profile/${vet.id}`)" >
-        <template #content>
-          <div class="body-content">
-            <div class="container-body_image">
-              <img :src="vet.photoUrl" :alt="vet.name" />
-            </div>
-
-            <div class="container-body_text">
-              <h2>Vet. {{ vet.name }}</h2>
-              <p>Appointments: {{vet.appointmentsQuantity}}</p>
-              <p>Score: {{ vet.score }} <i class="pi pi-star-fill" ></i></p>
+        <div class="vets-container">
+          <div class="container-header">
+            <h1>Veterinarians</h1>
+            <div class="col-12 md:col-4">
+              <div class="p-inputgroup">
+                <pv-button label="Search" @click="searchVet()"></pv-button>
+                <pv-input-text v-model="vetSearch" placeholder="Search veterinary" @keyup="searchVet()"></pv-input-text>
               </div>
             </div>
-        </template>
-      </pv-card>
+          </div>
+
+
+          <div class="container-body" v-for="vet in veterinarians" v-bind:key="vet.id">
+            <pv-card class="card" @click="$router.push(`/vets-profile/${vet.id}`)" >
+              <template #content>
+                <div class="body-content">
+                  <div class="container-body_image">
+                    <img :src="vet.photoUrl" :alt="vet.name" />
+                  </div>
+
+                  <div class="container-body_text">
+                    <h2>Vet. {{ vet.name }}</h2>
+                    <p>Appointments: {{vet.appointmentsQuantity}}</p>
+                    <p>Score: {{ vet.score }} <i class="pi pi-star-fill" ></i></p>
+                  </div>
+                </div>
+              </template>
+            </pv-card>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
+
+
+
 </template>
 
 <script>
 
 import {VeterinariansServices} from "../services/veterinarians.services";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
 
 export default {
   name: "veterinarians-list",
+  components: {MenuBarPetOwnerComponent, NavigationComponent},
   data() {
     return {
       veterinarians: null,

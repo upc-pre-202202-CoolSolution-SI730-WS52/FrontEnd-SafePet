@@ -1,38 +1,54 @@
 <template>
-  <pv-button class="back" @click="$router.push(`/clients`)">Back</pv-button>
-  <div class="big-container">
-    <div class="big-container-c">
-      <div class="card">
-        <img :src="item.photoUrl" alt="user photo" style="width:100%">
-        <div class="container">
-          <h4><b>{{ item.name }}</b></h4>
-          <p>Pet: {{ item.petName }}</p>
-        </div>
+
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
       </div>
-      <div class="card2">
-        <div class="container" v-for="check in checkups">
-          <hr class="dashed">
-          <h1 style="margin-bottom:10px; text-align:center"><b>Date: {{ check.date }}</b></h1>
-          <h1><b>Observations</b></h1>
-          <hr class="solid">
-          <p>{{ check.obs }}</p>
-          <h1 style="margin-top:30px"><b>Prescription</b></h1>
-          <hr class="solid">
-          <p>{{ check.pres }}</p>
+      <div class="col-10 ">
+
+        <div class="big-container">
+          <pv-button class="back" @click="$router.push(`/clients`)">Back</pv-button>
+          <div class="big-container-c">
+            <div class="card">
+              <img :src="item.photoUrl" alt="user photo" style="width:100%">
+              <div class="container">
+                <h4><b>{{ item.name }}</b></h4>
+                <p>Pet: {{ item.petName }}</p>
+              </div>
+            </div>
+            <div class="card2">
+              <div class="container" v-for="check in checkups">
+                <hr class="dashed">
+                <h1 style="margin-bottom:10px; text-align:center"><b>Date: {{ check.date }}</b></h1>
+                <h1><b>Observations</b></h1>
+                <hr class="solid">
+                <p>{{ check.obs }}</p>
+                <h1 style="margin-top:30px"><b>Prescription</b></h1>
+                <hr class="solid">
+                <p>{{ check.pres }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
 
 </template>
 
 <script>
 import { ClientsService } from "@/clients/services/clients.service";
 import { ChecksService } from "../services/checks.service";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
 
 export default {
   name: "ViewClientComponent",
-  components: {},
+  components: { NavigationComponent, MenubarComponent },
   data() {
     return {
       item: {

@@ -1,46 +1,66 @@
 <template>
-  <div class="container">
-    <div class="container-header">
-      <h1><i class="pi pi-angle-left" @click="$router.push(`/reviews/${id}`)"></i>New Review</h1>
+
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
+      </div>
+      <div class="col-10 ">
+
+        <div class="container">
+
+          <div class="container-header">
+            <h1><i class="pi pi-angle-left" @click="$router.push(`/reviews/${id}`)"></i>New Review</h1>
+          </div>
+
+          <pv-divider align="left" class="divider">
+            <span class="p-tag">Veterinary</span>
+          </pv-divider>
+          <div class="review-data">
+            <h1>{{veterinary.name}}</h1>
+          </div>
+
+          <pv-divider align="left" class="divider">
+            <span class="p-tag">Score</span>
+          </pv-divider>
+
+          <div class="review-data">
+            <pv-rating v-model="stars" :cancel="false" />
+          </div>
+
+          <pv-divider align="left" class="divider">
+            <span class="p-tag">Comment</span>
+          </pv-divider>
+
+          <div class="review-data">
+            <pv-textarea v-model="comment" rows="5" cols="50" />
+          </div>
+
+          <div class="add-review">
+            <pv-button @click="addReview()" >Add Review</pv-button>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-
-    <pv-divider align="left" class="divider">
-      <span class="p-tag">Veterinary</span>
-    </pv-divider>
-    <div class="review-data">
-      <h1>{{veterinary.name}}</h1>
-    </div>
-
-    <pv-divider align="left" class="divider">
-      <span class="p-tag">Score</span>
-    </pv-divider>
-
-    <div class="review-data">
-    <pv-rating v-model="stars" :cancel="false" />
-    </div>
-
-    <pv-divider align="left" class="divider">
-      <span class="p-tag">Comment</span>
-    </pv-divider>
-
-    <div class="review-data">
-    <pv-textarea v-model="comment" rows="5" cols="50" />
-    </div>
-
-    <div class="add-review">
-      <pv-button @click="addReview()" >Add Review</pv-button>
-    </div>
-
   </div>
+
+
+
 </template>
 
 <script>
 
 import {VeterinariansServices} from "../../../../veterinarians-list/services/veterinarians.services";
 import {ReviewsServices} from "../../services/reviews.services";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
 
 export default {
   name: "add-review.component",
+  components: { NavigationComponent, MenubarComponent },
   data(){
     return{
       id:null,
