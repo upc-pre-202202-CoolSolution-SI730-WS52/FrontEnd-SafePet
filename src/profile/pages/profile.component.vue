@@ -3,8 +3,12 @@
  <div class="w-full h-screen">
    <navigation-component></navigation-component>
    <div class="row flex">
-     <div class="col-2">
+     <div class="col-2" v-if="userRole==='vet'">
+
        <menubar-component></menubar-component>
+     </div>
+     <div class="col-2" v-else>
+       <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
      </div>
      <div class="col-10 ">
        <div class="myprofile-container">
@@ -51,17 +55,27 @@
 import {ProfileServices} from "../services/profile.services.js";
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
 import MenubarComponent from "@/shared/pages/menubar.component.vue";
+import {UsersServices} from "../../security/services/users.services";
+import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name:'Profile',
-  components: { NavigationComponent, MenubarComponent },
+  components: { NavigationComponent, MenubarComponent,MenuBarPetOwnerComponent },
   data(){
     return{
       profile:null,
 
+      currentUser: Number(sessionStorage.getItem("userId")),
+
+      userRole: "",
+
     }
   },
   created(){
+    new UsersServices().getUserById(this.currentUser).then((response) => {
+      this.userRole=String(response.data.role)
+    });
+
     new ProfileServices().getProfile().then(response => {
       this.profile = response.data
     })
