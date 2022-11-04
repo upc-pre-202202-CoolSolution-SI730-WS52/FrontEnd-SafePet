@@ -95,7 +95,7 @@ export default {
       appointments: null,
       most_purchased_products: null,
       clients: null,
-      currentUser: 1,
+      currentUser: 0,
       appointmentIndexer: 0,
 
 
@@ -103,6 +103,7 @@ export default {
     };
   },
   created() {
+    this.currentUser=Number(sessionStorage.getItem("userId"));
     new AppointmentsServices()
         .getAppointmentsByField("veterinarianId", this.currentUser)
         .then((response) => {

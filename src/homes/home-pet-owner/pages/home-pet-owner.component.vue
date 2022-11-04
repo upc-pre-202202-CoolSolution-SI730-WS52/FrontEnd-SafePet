@@ -104,12 +104,14 @@ export default {
       appointments: null,
       most_purchased_products: null,
       veterinarians_near_you: null,
-      currentUser: 1,
+      currentUser: 0,
       appointmentIndexer: 0,
 
     };
   },
   created() {
+    this.currentUser=Number(sessionStorage.getItem("userId"));
+
     new AppointmentsServices()
       .getAppointmentsByField("petOwnerId", this.currentUser)
       .then((response) => {
@@ -244,7 +246,7 @@ img {
   font-size: 25px;
 }
 .most-purchased-products {
-  margin-left: 400px;
+  margin-left: 450px;
 }
 
 .maps-location {
