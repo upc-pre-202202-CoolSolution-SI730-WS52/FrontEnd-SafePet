@@ -4,7 +4,7 @@
     <navigation-component></navigation-component>
     <div class="row flex">
       <div class="col-2">
-        <menubar-component></menubar-component>
+        <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
       </div>
       <div class="col-10 ">
 
@@ -57,10 +57,11 @@ import {VeterinariansServices} from "../../../../veterinarians-list/services/vet
 import {ReviewsServices} from "../../services/reviews.services";
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
 import MenubarComponent from "@/shared/pages/menubar.component.vue";
+import MenuBarPetOwnerComponent from "../../../../shared/pages/menubar-pet-owners.component.vue";
 
 export default {
   name: "add-review.component",
-  components: { NavigationComponent, MenubarComponent },
+  components: {MenuBarPetOwnerComponent, NavigationComponent, MenubarComponent },
   data(){
     return{
       id:null,
