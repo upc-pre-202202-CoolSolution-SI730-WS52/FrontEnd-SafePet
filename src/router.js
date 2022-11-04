@@ -1,7 +1,6 @@
 import ProductsCategoryComponent from "./products/pages/products-category.component.vue";
 import { createRouter, createWebHistory } from "vue-router"; //Vue vite
 import Dogproducts from "./products/pages/products-list.component.vue";
-import HomePetOwner from "./homes/home-pet-owner/pages/home-pet-owner.component.vue";
 import ClientListComponent from "@/clients/pages/clients-list.component.vue";
 import AppointmentsComponent from "@/appointments/pages/appointments.component.vue";
 import productComponent from "./products/pages/product-view.component.vue";
@@ -13,11 +12,16 @@ import AddReviewComponent from "./social/reviews/pages/add-review/add-review.com
 import ViewClientComponent from "@/clients/pages/view-client.component.vue";
 import ClientAddCheckComponent from "@/clients/pages/client-add-check.component.vue";
 import HomeVetsComponent from "./homes/home-vets/pages/home-vets.component.vue";
+import RegisterComponent from "./security/pages/register.component.vue";
+import loginComponent from "./security/pages/login.component.vue";
+import HomePetOwnerComponent from "./homes/home-pet-owner/pages/home-pet-owner.component.vue";
 
 
 const routes = [
-  { path: "/", component: HomePetOwner },
+  { path: "/", component: loginComponent},
+  { path: "/register", component: RegisterComponent},
   { path: "/home-vets", component: HomeVetsComponent },
+  { path: "/home-pet-owners", component: HomePetOwnerComponent },
   { path: "/profile", component: ProfileComponent},
   { path: "/products", component: ProductsCategoryComponent },
   { path: "/products/:category", component: Dogproducts },
