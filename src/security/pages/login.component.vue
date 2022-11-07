@@ -28,7 +28,7 @@
 
             <div class="field">
               <div class="p-float-label">
-                <pv-password id="password" v-model="password" :feedback="false"/>
+                <pv-password id="password" v-model="password" :feedback="false" toggleMask/>
                 <label for="password" >Password</label>
               </div>
             </div>

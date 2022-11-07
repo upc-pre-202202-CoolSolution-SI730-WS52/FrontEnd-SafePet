@@ -13,9 +13,9 @@
       <div class="col-10 ">
         <div class="big-container pl-5 mt-3">
           <div class="title-label">
-            <h1 class="back" @click="$router.push('/products')">> {{ category }}</h1>
+            <h1 class="back" ><i class="pi pi-angle-left" @click="$router.push('/products')"></i> {{ category }}</h1>
             <br />
-            <pv-button> New product</pv-button>
+            <pv-button  v-if="userRole==='vet'"> New product</pv-button>
             <br />
           </div>
           <br />
@@ -142,5 +142,11 @@ export default {
   align-items: center;
   max-width: 700px;
   max-height: 700px;
+}
+
+.pi-angle-left{
+
+  font-size: 2rem;
+
 }
 </style>

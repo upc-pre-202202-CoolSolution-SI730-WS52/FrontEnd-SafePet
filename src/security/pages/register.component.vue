@@ -160,8 +160,8 @@ export default {
 
     return { state, v$, submitted, showMessage, date, role,
       roles: [
-        {name: 'Pet Owner'},
-        {name: 'Vet'}
+        {name: 'Pet Owner', code: 'petOwner'},
+        {name: 'Vet', code: 'vet'}
       ]
 
     }
@@ -180,7 +180,7 @@ export default {
 
       if(this.showMessage===true) {
 
-        new UsersServices().createUser(String(this.state.email),String(this.state.password), String(this.role.name) ).then((response) => {});
+        new UsersServices().createUser(String(this.state.email),String(this.state.password), String(this.role.code) ).then((response) => {});
 
 
         this.state.name = '';

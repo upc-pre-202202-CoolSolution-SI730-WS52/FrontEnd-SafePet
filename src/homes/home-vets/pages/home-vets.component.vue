@@ -33,7 +33,7 @@
                 <div class="card" @click="$router.push(`/clients/${client.id}`)" >
                   <div class="product">
                     <h1>{{ client.name }}</h1>
-                    <p>{{ client.petName }}</p>
+                    <p>Pet: {{ client.petName }}</p>
                   </div>
                   <div class="images">
                     <img  :src="client.photoUrl" v-bind:alt="client.name" />
@@ -249,6 +249,12 @@ img {
   margin-top: 20px;
   margin-left: 300px;
 }
+
+.my-clients img{
+  margin-left: 5px;
+  border-radius: 5%
+}
+
 @media (max-width: 768px) {
   .container {
     display: grid;

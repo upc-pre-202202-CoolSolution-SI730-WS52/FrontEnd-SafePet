@@ -361,12 +361,6 @@
       "email": "piero@email.com",
       "password": "piero12",
       "role": "petOwner"
-    },
-    {
-      "email": "juan@email.com",
-      "password": "juan12",
-      "role": "Pet Owner",
-      "id": 5
     }
   ]
 }
