@@ -27,7 +27,7 @@
               <div v-for="appo in appointments" :key="appo.id">
                 <div class="card-apo">
                   <div class="info">
-                    <h1>Appointment #{{ appo.number }}</h1>
+                    <h1>Appointment </h1>
                     <h2>Vet. {{ appo.veterinarianName }}</h2>
                     <h2 class="date">Date: {{ appo.date }}</h2>
                   </div>

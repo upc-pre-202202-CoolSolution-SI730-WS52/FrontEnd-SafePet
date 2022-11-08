@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       id: null,
-      currentUser: 1,
+      currentUser: Number(sessionStorage.getItem("userId")),
       typePet: null,
       veterinary: null,
       veterinariansService: null,

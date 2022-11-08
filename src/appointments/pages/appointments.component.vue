@@ -34,7 +34,7 @@
                   </div>
 
                   <div class="container-body_text">
-                    <p>Appointment # {{ appointment.number }}</p>
+                    <h4>Appointment </h4>
                     <p>Vet. {{ appointment.veterinarianName }}</p>
                     <br />
                     <div class="body-text_bottom">
