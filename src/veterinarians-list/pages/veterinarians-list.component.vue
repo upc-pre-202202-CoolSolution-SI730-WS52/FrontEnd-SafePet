@@ -20,7 +20,7 @@
 
 
           <div class="container-body" v-for="vet in veterinarians" v-bind:key="vet.id">
-            <pv-card class="card" @click="$router.push(`/vets-profile/${vet.id}`)" >
+            <pv-card class="card" @click="$router.push(`/vets-profile/${vet.id}`)" >}
               <template #content>
                 <div class="body-content">
                   <div class="container-body_image">
@@ -31,6 +31,7 @@
                     <h2>Vet. {{ vet.name }}</h2>
                     <p>Appointments: {{vet.appointmentsQuantity}}</p>
                     <p>Score: {{ vet.score }} <i class="pi pi-star-fill" ></i></p>
+
                   </div>
                 </div>
               </template>
@@ -118,6 +119,9 @@ h2{
   margin-left: 20px;
 }
 
+.container-body_text{
+  height: 500px;
+}
 .btn {
   display: flex;
   gap: 25px;
@@ -130,16 +134,17 @@ h2{
 pv-button {
   background-color: #005320;
   margin-bottom: 50px;
+
 }
 
-.container-body {
+.container-body. {
   margin-top: 20px;
 }
 
 .card {
   border-radius: 20px;
   width: 500px;
-  height: 150px;
+  height: 160px;
   margin-bottom: 10px;
 }
 
