@@ -5,7 +5,27 @@ export class AppointmentsServices {
     return http.get("/appointments");
   };
 
-  getAppointmentsByField = (field, value) => {
+  getAppointmentById = (id) => {
+    return http.get(`/appointments/${id}`);
+  };
+
+  getAppointmentByField = (field, value) => {
     return http.get(`/appointments?${field}=${value}`);
   };
+
+  createAppointment=(petOwnerId, petOwnerName,veterinarianId, veterinarianName, date, image)=>{
+    return http.post("/appointments", {
+      "petOwnerId": petOwnerId,
+      "petOwnerName": petOwnerName,
+      "veterinarianId": veterinarianId,
+      "veterinarianName": veterinarianName,
+     // "topic": topic,
+      "date": date,
+      //"time": time,
+      "image": image
+    })
+  }
+
+
+
 }
