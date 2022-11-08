@@ -4,8 +4,12 @@
   <div class="w-full h-screen">
     <navigation-component></navigation-component>
     <div class="row flex">
-      <div class="col-2">
+      <div class="col-2" v-if="userRole==='vet'">
+
         <menubar-component></menubar-component>
+      </div>
+      <div class="col-2" v-else>
+        <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
       </div>
       <div class="col-10 ">
         <div class="big-container">
@@ -39,13 +43,19 @@
 import { productViewService } from "@/products/services/productview.service";
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
 import MenubarComponent from "@/shared/pages/menubar.component.vue";
+import {UsersServices} from "../../security/services/users.services";
+import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
 
 export default {
   name: "productComponent",
-  components: { NavigationComponent, MenubarComponent },
+  components: { NavigationComponent, MenubarComponent,MenuBarPetOwnerComponent  },
 
   data() {
     return {
+      currentUser: Number(sessionStorage.getItem("userId")),
+
+      userRole: "",
+
       item: {
         title: "",
         price: 0,
@@ -57,9 +67,16 @@ export default {
     };
   },
   created() {
+
+    new UsersServices().getUserById(this.currentUser).then((response) => {
+      this.userRole=String(response.data.role)
+    });
+
     this.id = this.$route.params.id;
     this.item.category = this.$route.params.category;
     this.getInformation(this.id);
+
+
   },
   methods: {
     getInformation() {

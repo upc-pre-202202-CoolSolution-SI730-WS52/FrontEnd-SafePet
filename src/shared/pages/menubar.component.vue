@@ -22,7 +22,7 @@ export default {
         {
           label: "Home",
           icon: "pi pi-home",
-          url: "/",
+          url: "/home-vets",
         },
         {
           label: "Profile",

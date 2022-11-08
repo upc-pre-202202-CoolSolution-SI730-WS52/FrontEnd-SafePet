@@ -33,7 +33,7 @@
                 <div class="card" @click="$router.push(`/clients/${client.id}`)" >
                   <div class="product">
                     <h1>{{ client.name }}</h1>
-                    <p>{{ client.petName }}</p>
+                    <p>Pet: {{ client.petName }}</p>
                   </div>
                   <div class="images">
                     <img  :src="client.photoUrl" v-bind:alt="client.name" />
@@ -95,7 +95,7 @@ export default {
       appointments: null,
       most_purchased_products: null,
       clients: null,
-      currentUser: 1,
+      currentUser: 0,
       appointmentIndexer: 0,
 
 
@@ -103,6 +103,7 @@ export default {
     };
   },
   created() {
+    this.currentUser=Number(sessionStorage.getItem("userId"));
     new AppointmentsServices()
         .getAppointmentsByField("veterinarianId", this.currentUser)
         .then((response) => {
@@ -248,6 +249,12 @@ img {
   margin-top: 20px;
   margin-left: 300px;
 }
+
+.my-clients img{
+  margin-left: 5px;
+  border-radius: 5%
+}
+
 @media (max-width: 768px) {
   .container {
     display: grid;
