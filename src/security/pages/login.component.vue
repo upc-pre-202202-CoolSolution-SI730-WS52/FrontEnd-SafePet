@@ -80,7 +80,7 @@ export default {
           if(this.userSearch.role==="vet"){
             sessionStorage.setItem("userId", this.userSearch.id.toString());
 
-            this.$router.push(`/home-vet`);
+            this.$router.push(`/home-vets`);
           }else{
             sessionStorage.setItem("userId", this.userSearch.id.toString());
             this.$router.push(`/home-pet-owner`);
