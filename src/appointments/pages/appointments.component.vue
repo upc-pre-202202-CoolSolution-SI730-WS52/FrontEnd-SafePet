@@ -15,17 +15,9 @@
         <div class="appointment-container">
           <h1>Appointments</h1>
           <br />
-          <div class="btn">
-            <pv-button
-                @click="$router.push('/appointments')"
-                label="Done"
-            ></pv-button>
-            <pv-button
-                @click="$router.push('/appointments')"
-                label="Incoming"
-                class="p-button-outlined"
-            ></pv-button>
-          </div>
+          <pv-divider align="left" class="divider">
+            <span class="p-tag">Check your appointments</span>
+          </pv-divider>
 
           <div class="container-body">
             <pv-card
@@ -43,7 +35,7 @@
                   </div>
 
                   <div class="container-body_text">
-                    <p>Appointment # {{ appointment.number }}</p>
+                    <p>Appointment #{{ appointment.id }}</p>
                     <p>Vet. {{ appointment.veterinarianName }}</p>
                     <br />
                     <div class="body-text_bottom">
