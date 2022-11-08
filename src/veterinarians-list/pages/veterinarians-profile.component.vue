@@ -11,8 +11,15 @@
         <div class="myprofile-container">
 
           <div class="container-header">
-            <h1><i class="pi pi-angle-left" @click="$router.push(`/vets`)"></i>Veterinary Profile </h1>
+            <div class="container-header-text">
+              <h1><i class="pi pi-angle-left" @click="$router.push(`/vets`)"></i>Veterinary Profile</h1>
+            </div>
+            <div>
+            <pv-button @click="$router.push(`/schedule-appointments/${veterinary.id}`)" >Schedule An Appointment</pv-button>
+            </div>
           </div>
+
+
 
           <div class="container-body">
 
@@ -52,6 +59,8 @@
             <div class="go-to-reviews">
               <pv-button @click="$router.push(`/reviews/${veterinary.id}`)" >Reviews</pv-button>
             </div>
+
+
           </div>
         </div>
 
@@ -119,6 +128,12 @@ h1{
   align-items: center;
 }
 
+.container-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 img{
   display: flex;
   border-radius: 50%;
@@ -143,10 +158,6 @@ img{
   flex-direction: row;
   align-items: center;
   margin-top: 1px;
-}
-
-i{
-  margin: 2%;
 }
 
 .pi-angle-left{
