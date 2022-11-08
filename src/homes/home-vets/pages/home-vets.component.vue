@@ -105,7 +105,7 @@ export default {
   created() {
     this.currentUser=Number(sessionStorage.getItem("userId"));
     new AppointmentsServices()
-        .getAppointmentsByField("veterinarianId", this.currentUser)
+        .getAppointmentByField("veterinarianId", this.currentUser)
         .then((response) => {
           this.appointments = response.data;
         });

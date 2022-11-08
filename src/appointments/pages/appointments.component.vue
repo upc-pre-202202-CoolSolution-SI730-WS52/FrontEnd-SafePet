@@ -3,24 +3,20 @@
   <div class="w-full h-screen">
     <navigation-component></navigation-component>
     <div class="row flex">
-      <div class="col-2">
+      <div class="col-2" v-if="userRole==='vet'">
+
+        <menu-bar-component></menu-bar-component>
+      </div>
+      <div class="col-2" v-else>
         <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
       </div>
       <div class="col-10 ">
         <div class="appointment-container">
           <h1>Appointments</h1>
           <br />
-          <div class="btn">
-            <pv-button
-                @click="$router.push('/appointments')"
-                label="Done"
-            ></pv-button>
-            <pv-button
-                @click="$router.push('/appointments')"
-                label="Incoming"
-                class="p-button-outlined"
-            ></pv-button>
-          </div>
+          <pv-divider align="left" class="divider">
+            <span class="p-tag">Check your appointments</span>
+          </pv-divider>
 
           <div class="container-body">
             <pv-card
@@ -60,20 +56,29 @@
 import { AppointmentsServices } from "../services/appointments.services.js";
 
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
-//import MenubarComponent from "@/shared/pages/menubar.component.vue";
+
 import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
+import {UsersServices} from "../../security/services/users.services";
+import MenuBarComponent from "../../shared/pages/menubar.component.vue";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "appointments",
-  components: {MenuBarPetOwnerComponent, NavigationComponent },
+  components: {MenuBarComponent, MenuBarPetOwnerComponent, NavigationComponent },
   data() {
     return {
       appointments: null,
-      currentUser: 1,
+      currentUser: Number(sessionStorage.getItem("userId")),
+
+      userRole: "",
     };
   },
   created() {
+
+    new UsersServices().getUserById(this.currentUser).then((response) => {
+      this.userRole=String(response.data.role)
+    });
+
     new AppointmentsServices()
       .getAppointmentByField("petOwnerId", this.currentUser)
       .then((response) => {

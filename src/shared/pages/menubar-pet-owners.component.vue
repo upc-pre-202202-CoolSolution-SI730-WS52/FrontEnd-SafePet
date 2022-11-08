@@ -22,7 +22,7 @@ export default {
         {
           label: "Home",
           icon: "pi pi-home",
-          url: "/home-pet-owners",
+          url: "/home-pet-owner",
         },
         {
           label: "Profile",

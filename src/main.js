@@ -21,6 +21,9 @@ import Divider from 'primevue/divider';
 import Rating from 'primevue/rating';
 import Textarea from 'primevue/textarea';
 import Calendar from 'primevue/calendar';
+import Password from 'primevue/password';
+import Dropdown from 'primevue/dropdown';
+import Checkbox from 'primevue/checkbox';
 
 const app = createApp(App);
 app.use(PrimeVue);
@@ -37,4 +40,7 @@ app.component("pv-divider", Divider);
 app.component("pv-rating", Rating);
 app.component("pv-textarea", Textarea);
 app.component("pv-calendar", Calendar);
+app.component("pv-password", Password);
+app.component("pv-dropdown", Dropdown);
+app.component("pv-checkbox", Checkbox);
 app.mount("#app");
