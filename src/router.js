@@ -15,11 +15,14 @@ import ClientAddCheckComponent from "@/clients/pages/client-add-check.component.
 import HomeVetsComponent from "./homes/home-vets/pages/home-vets.component.vue";
 import ScheduleAppointmentsComponent from "@/appointments/pages/schedule-appointments.component.vue";
 import HomePetOwnerComponent from "@/homes/home-pet-owner/pages/home-pet-owner.component.vue";
+import loginComponent from "./security/pages/login.component.vue";
+import RegisterComponent from "./security/pages/register.component.vue";
 
 
 
 const routes = [
-  { path: "/", component: HomePetOwner},
+  { path: "/", component: loginComponent},
+  { path: "/register", component: RegisterComponent},
   { path: "/home-vets", component: HomeVetsComponent },
   { path: "/home-pet-owner", component: HomePetOwnerComponent },
   { path: "/profile", component: ProfileComponent},
@@ -36,6 +39,7 @@ const routes = [
   { path: "/new-review/:id", component: AddReviewComponent},
   { path: "/clients/:id", component: ViewClientComponent},
   { path: "/clients/:id/add-check", component: ClientAddCheckComponent}
+
 ];
 
 const history = createWebHistory();
