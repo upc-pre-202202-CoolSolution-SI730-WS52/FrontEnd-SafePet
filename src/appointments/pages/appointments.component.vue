@@ -4,7 +4,7 @@
     <navigation-component></navigation-component>
     <div class="row flex">
       <div class="col-2">
-        <menubar-component></menubar-component>
+        <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
       </div>
       <div class="col-10 ">
         <div class="appointment-container">
@@ -43,7 +43,6 @@
                     <br />
                     <div class="body-text_bottom">
                       <p>Date: {{ appointment.date }}</p>
-                      <a href="">Add Review</a>
                     </div>
                   </div>
                 </div>
@@ -61,12 +60,13 @@
 import { AppointmentsServices } from "../services/appointments.services.js";
 
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
-import MenubarComponent from "@/shared/pages/menubar.component.vue";
+//import MenubarComponent from "@/shared/pages/menubar.component.vue";
+import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "appointments",
-  components: { NavigationComponent, MenubarComponent },
+  components: {MenuBarPetOwnerComponent, NavigationComponent },
   data() {
     return {
       appointments: null,
@@ -75,7 +75,7 @@ export default {
   },
   created() {
     new AppointmentsServices()
-      .getAppointmentsByField("petOwnerId", this.currentUser)
+      .getAppointmentByField("petOwnerId", this.currentUser)
       .then((response) => {
         this.appointments = response.data;
       });
