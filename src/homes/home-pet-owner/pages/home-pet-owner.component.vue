@@ -111,7 +111,7 @@ export default {
   },
   created() {
     new AppointmentsServices()
-      .getAppointmentsByField("petOwnerId", this.currentUser)
+      .getAppointmentByField("petOwnerId", this.currentUser)
       .then((response) => {
         this.appointments = response.data;
       });
