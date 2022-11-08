@@ -13,17 +13,23 @@ import AddReviewComponent from "./social/reviews/pages/add-review/add-review.com
 import ViewClientComponent from "@/clients/pages/view-client.component.vue";
 import ClientAddCheckComponent from "@/clients/pages/client-add-check.component.vue";
 import HomeVetsComponent from "./homes/home-vets/pages/home-vets.component.vue";
+import ScheduleAppointmentsComponent from "@/appointments/pages/schedule-appointments.component.vue";
+import HomePetOwnerComponent from "@/homes/home-pet-owner/pages/home-pet-owner.component.vue";
+
 
 
 const routes = [
-  { path: "/", component: HomePetOwner },
+  { path: "/", component: HomePetOwner},
   { path: "/home-vets", component: HomeVetsComponent },
+  { path: "/home-pet-owner", component: HomePetOwnerComponent },
   { path: "/profile", component: ProfileComponent},
   { path: "/products", component: ProductsCategoryComponent },
   { path: "/products/:category", component: Dogproducts },
   { path: "/clients", component: ClientListComponent },
   { path: "/products/:category/:id", component: productComponent },
   { path: "/appointments", component: AppointmentsComponent },
+  { path: "/appointments/:id", component: AppointmentsComponent },
+  { path: "/schedule-appointments/:id", component: ScheduleAppointmentsComponent },
   { path: "/vets", component: VeterinariansListComponent },
   { path: "/vets-profile/:id", component: VeterinariansProfileComponent },
   { path: "/reviews/:id", component: ReviewsComponent},
