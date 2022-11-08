@@ -16,6 +16,7 @@
 <script>
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
 import MenubarComponent from "@/shared/pages/menubar.component.vue";
+
 export default {
   name: "App",
   components: { NavigationComponent, MenubarComponent },
