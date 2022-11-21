@@ -5,6 +5,6 @@ export class ChecksService {
     return http.get("/checkups");
   };
   createCheck = (data) => {
-    return http.post("checkups", data);
+    return http.post("/checkups", data);
   };
 }

@@ -12,7 +12,7 @@ export class ReviewsServices {
 
 
     getReviewByField = (field, value) => {
-        return http.get(`/reviews?${field}=${value}`);
+        return http.get(`/reviews/${field}/${value}`);
     };
 
     createReview=(petOwnerId, petOwnerName,veterinarianId, veterinarianName, stars,comment)=>{

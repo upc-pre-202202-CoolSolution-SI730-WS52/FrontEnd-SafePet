@@ -5,7 +5,7 @@ export class ProductsService {
     return http.get("/products");
   };
   getProductsByCategory = (category) => {
-    return http.get(`/products?category=${category}`);
+    return http.get(`/products/category/${category}`);
   };
   createProduct = (data) => {
     return http.post("/products", data);
