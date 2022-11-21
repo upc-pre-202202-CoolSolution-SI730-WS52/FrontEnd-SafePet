@@ -5,6 +5,6 @@ export class ClientsService {
         return http.get("/clients");
     };
     getClientById = (id) => {
-        return http.get(`/clients?id=${id}`);
+        return http.get(`/clients/${id}`);
     };
 }

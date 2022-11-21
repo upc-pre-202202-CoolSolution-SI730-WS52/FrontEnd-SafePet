@@ -56,7 +56,7 @@ export default {
       obs2: "",
       pres2: "",
       id: null,
-      checkId: null,
+      checkId: 0,
       checks: [],
       checksService: new ChecksService()
     };
@@ -71,8 +71,8 @@ export default {
         id: this.checkId,
         clientId: this.id,
         date: this.date2,
-        obs: this.obs2,
-        pres: this.pres2
+        observation: this.obs2,
+        prescription: this.pres2
       };
       this.checksService.createCheck(data).then(this.$router.push("/clients"));
     },

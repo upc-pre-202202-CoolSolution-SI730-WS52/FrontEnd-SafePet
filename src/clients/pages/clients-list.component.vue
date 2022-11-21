@@ -13,8 +13,8 @@
             <h3>Select a client </h3>
           </div>
 
-          <div class="cards justify-content-center" v-for="client in clients" style="margin: 24px 0 0 0">
-            <div class="category-card">
+          <div class="cards justify-content-center" v-for="client in clients" style="margin: 24px 0 0 0" v-show="client.vetId===this.currentUser">
+            <div class="category-card" >
               <div class="category-card-container">
                 <img class="image" :src="client.photoUrl" alt="category" />
               </div>
@@ -48,6 +48,7 @@ export default {
   components: { NavigationComponent, MenubarComponent },
   data() {
     return {
+      currentUser: Number(sessionStorage.getItem("userId")),
       clients: [],
       client: {},
       clientsService: null,
