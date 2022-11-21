@@ -10,7 +10,7 @@ export class AppointmentsServices {
   };
 
   getAppointmentByField = (field, value) => {
-    return http.get(`/appointments?${field}=${value}`);
+    return http.get(`/appointments/${field}/${value}`);
   };
 
   createAppointment=(petOwnerId, petOwnerName,veterinarianId, veterinarianName, date, image)=>{
@@ -19,9 +19,7 @@ export class AppointmentsServices {
       "petOwnerName": petOwnerName,
       "veterinarianId": veterinarianId,
       "veterinarianName": veterinarianName,
-     // "topic": topic,
       "date": date,
-      //"time": time,
       "image": image
     })
   }
