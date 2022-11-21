@@ -58,6 +58,7 @@ import {ReviewsServices} from "../../services/reviews.services";
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
 import MenubarComponent from "@/shared/pages/menubar.component.vue";
 import MenuBarPetOwnerComponent from "../../../../shared/pages/menubar-pet-owners.component.vue";
+import {UsersServices} from "../../../../security/services/users.services";
 
 export default {
   name: "add-review.component",
@@ -65,11 +66,13 @@ export default {
   data(){
     return{
       id:null,
-      currentUser:1,
+      currentUser:Number(sessionStorage.getItem("userId")),
       veterinary: null,
       veterinariansService:null,
+      usersService:null,
       stars:0,
       comment:null,
+      reviewer:null,
       reviewsService:null
     }
   },
@@ -78,17 +81,20 @@ export default {
 
     this.veterinariansService= new VeterinariansServices;
     this.reviewsService= new ReviewsServices;
-
+     this.usersService=new UsersServices;
     this.veterinariansService.getVeterinarianById(this.id).then((response) => {
       this.veterinary = response.data;
 
     });
 
+    this.usersService.getUserById(this.currentUser).then((response) => {
+      this.reviewer=response.data.name;
+    });
   },
   methods:{
     addReview(){
 
-      this.reviewsService.createReview(this.currentUser,"Pedro Castillo",this.veterinary.id, this.veterinary.name, this.stars,this.comment).then((response) => {
+      this.reviewsService.createReview(this.currentUser,String(this.reviewer),this.veterinary.id, this.veterinary.name, this.stars,this.comment).then((response) => {
         this.$router.push(`/reviews/${this.id}`);
 
       });
