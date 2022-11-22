@@ -1,50 +1,81 @@
 <template>
-  <div class="myprofile-container">
-    <div class="container-body">
 
-      <div class="card" >
-        <div class="card-content" v-for="profile in profile" :key="profile.id">
-          <div class="container-title">
-            <div clas="container-title-image">
-              <img alt="profile" :src="profile.photoUrl"/>
-            </div>
-            <div class="container-title-name">
-              <h1>{{profile.name}}</h1>
-            </div>
-          </div>
-          <div class="container-body-text">
-            <div class="icon">
-              <i class="pi pi-calendar"></i>
-              <p>{{profile.birthday}}</p>
-            </div>
-            <div class="icon">
-              <i class="pi pi-phone"></i>
-              <p>{{profile.phone}}</p>
-            </div>
-            <div class="icon">
-              <i class="pi pi-envelope"></i>
-              <p>{{profile.email}}</p>
-            </div>
-          </div>
-        </div>
+ <div class="w-full h-screen">
+   <navigation-component></navigation-component>
+   <div class="row flex">
+     <div class="col-2" v-if="userRole==='vet'">
+
+       <menubar-component></menubar-component>
+     </div>
+     <div class="col-2" v-else>
+       <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
+     </div>
+     <div class="col-10 ">
+       <div class="myprofile-container">
+         <div class="container-body">
+
+           <div class="card" >
+             <div class="card-content" >
+               <div class="container-title">
+                 <div clas="container-title-image">
+                   <img alt="profile" :src="user.photoUrl"/>
+                 </div>
+                 <div class="container-title-name">
+                   <h1>{{user.name}}</h1>
+                 </div>
+               </div>
+               <div class="container-body-text">
+                 <div class="icon">
+                   <i class="pi pi-calendar"></i>
+                   <p>{{user.birthday}}</p>
+                 </div>
+                 <div class="icon">
+                   <i class="pi pi-phone"></i>
+                   <p>{{user.phone}}</p>
+                 </div>
+                 <div class="icon">
+                   <i class="pi pi-envelope"></i>
+                   <p>{{user.email}}</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
       </div>
     </div>
   </div>
+
+
+
+
 </template>
 
 <script>
 import {ProfileServices} from "../services/profile.services.js";
-
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
+import {UsersServices} from "../../security/services/users.services";
+import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name:'Profile',
+  components: { NavigationComponent, MenubarComponent,MenuBarPetOwnerComponent },
   data(){
     return{
       profile:null,
+      currentUser: Number(sessionStorage.getItem("userId")),
+      user:{},
+      userRole: "",
 
     }
   },
   created(){
+    new UsersServices().getUserById(this.currentUser).then((response) => {
+      this.userRole=String(response.data.role)
+      this.user=response.data
+    });
+
     new ProfileServices().getProfile().then(response => {
       this.profile = response.data
     })
@@ -77,7 +108,7 @@ export default {
 
 img{
   display: flex;
-  border-radius: 400%;
+  border-radius: 20%;
   width: 320px;
   height: 400px;
   margin-top: 2%;

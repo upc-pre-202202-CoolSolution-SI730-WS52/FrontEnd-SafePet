@@ -1,104 +1,135 @@
 <template>
-  <div class="product-container pl-5 mt-3">
-    <div class="top-container">
-      <label class="top-container-title" for="ProductList"> Products</label>
-      <h3>Select a product category</h3>
-    </div>
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2" v-if="userRole==='vet'">
 
-    <br />
-    <div class="cards justify-content-center">
-      <div class="category-card">
-        <div class="category-card-container">
-          <img class="image" src="@/assets/dogs.png" alt="category" />
-        </div>
-        <div class="category-card-container ml-3">
-          <div class="ml-3">
-            <h1>Dogs</h1>
-            <h4>Cant: {{ countDog }}</h4>
-          </div>
-        </div>
-        <div class="category-card-container flex justify-content-end mr-6">
-          <pv-button
-              class="p-button-text p-button-lg"
-              @click="$router.push('/products/dog')"
-              icon="pi pi-arrow-right"
-          ></pv-button>
-        </div>
+        <menubar-component></menubar-component>
       </div>
-      <br />
-      <div class="category-card">
-        <div class="category-card-container">
-          <img class="image" src="@/assets/cat.jpg" alt="category" />
-        </div>
-        <div class="category-card-container ml-3">
-          <div class="ml-3">
-            <h1>Cats</h1>
-            <h4>Cant: {{ countCat }}</h4>
-          </div>
-        </div>
-        <div class="category-card-container flex justify-content-end mr-6">
-          <pv-button
-              class="p-button-text p-button-lg"
-              @click="$router.push('/products/cat')"
-              icon="pi pi-arrow-right"
-          ></pv-button>
-        </div>
+      <div class="col-2" v-else>
+        <menu-bar-pet-owner-component></menu-bar-pet-owner-component>
       </div>
+      <div class="col-10 ">
+        <div class="product-container pl-5 mt-3">
+          <div class="top-container">
+            <label class="top-container-title" for="ProductList"> Products</label>
+            <h3>Select a product category</h3>
+          </div>
 
-      <br />
-      <div class="category-card">
-        <div class="category-card-container">
-          <img class="image" src="@/assets/Other.jpg" alt="category" />
-        </div>
-        <div class="category-card-container ml-3">
-          <div class="ml-3">
-            <h1>Other</h1>
-            <h4>Cant: {{ countOther }}</h4>
+          <br />
+          <div class="cards justify-content-center">
+            <div class="category-card">
+              <div class="category-card-container">
+                <img class="image" src="https://raw.githubusercontent.com/GabrielGomezDlc/PP-Daop/main/src/assets/dogs.png" alt="category" />
+              </div>
+              <div class="category-card-container ml-3">
+                <div class="ml-3">
+                  <h1>Dogs</h1>
+                  <h4>Cant: {{ countDog }}</h4>
+                </div>
+              </div>
+              <div class="category-card-container flex justify-content-end mr-6">
+                <pv-button
+                    class="p-button-text p-button-lg"
+                    @click="$router.push('/products/dog')"
+                    icon="pi pi-arrow-right"
+                ></pv-button>
+              </div>
+            </div>
+            <br />
+            <div class="category-card">
+              <div class="category-card-container">
+                <img class="image" src="https://raw.githubusercontent.com/GabrielGomezDlc/PP-Daop/main/src/assets/cat.jpg" alt="category" />
+              </div>
+              <div class="category-card-container ml-3">
+                <div class="ml-3">
+                  <h1>Cats</h1>
+                  <h4>Cant: {{ countCat }}</h4>
+                </div>
+              </div>
+              <div class="category-card-container flex justify-content-end mr-6">
+                <pv-button
+                    class="p-button-text p-button-lg"
+                    @click="$router.push('/products/cat')"
+                    icon="pi pi-arrow-right"
+                ></pv-button>
+              </div>
+            </div>
+
+            <br />
+            <div class="category-card">
+              <div class="category-card-container">
+                <img class="image" src="https://raw.githubusercontent.com/GabrielGomezDlc/PP-Daop/main/src/assets/Other.jpg" alt="category" />
+              </div>
+              <div class="category-card-container ml-3">
+                <div class="ml-3">
+                  <h1>Other</h1>
+                  <h4>Cant: {{ countOther }}</h4>
+                </div>
+              </div>
+              <div class="category-card-container flex justify-content-end mr-6">
+                <pv-button
+                    class="p-button-text p-button-lg"
+                    icon="pi pi-arrow-right"
+                    @click="$router.push('/products/other')"
+                >
+                </pv-button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="category-card-container flex justify-content-end mr-6">
-          <pv-button
-              class="p-button-text p-button-lg"
-              icon="pi pi-arrow-right"
-              @click="$router.push('/products/other')"
-          >
-          </pv-button>
         </div>
       </div>
     </div>
   </div>
+
+
+
 </template>
 
 <script>
 import { ProductsService } from "@/products/services/products.service";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
+import {UsersServices} from "../../security/services/users.services";
+import MenuBarPetOwnerComponent from "../../shared/pages/menubar-pet-owners.component.vue";
+
 export default {
   name: "ProductsCategoryComponent",
-  components: {},
+  components: { NavigationComponent, MenubarComponent,MenuBarPetOwnerComponent },
   data() {
     return {
+      currentUser: Number(sessionStorage.getItem("userId")),
+
+      userRole: "",
+
+
       products: [],
       product: {},
       productsService: null,
       categoryProduct: null,
       category: null,
-      countDog: null,
-      countCat: null,
-      countOther: null,
+      count:null,
+      countDog: 0,
+      countCat: 0,
+      countOther: 0,
     };
   },
   created() {
+    new UsersServices().getUserById(this.currentUser).then((response) => {
+      this.userRole=String(response.data.role)
+    });
+
     this.productsService = new ProductsService();
-    this.productsService.getProductsByCategory("dog").then((response) => {
-      this.countDog = response.data.length;
+    this.productsService.getProducts().then((response) => {
+      this.count = response.data;
+      for(let i = 0; i < this.count.length; i++) {
+        if(this.count[i].category==="dog")this.countDog+=1;
+        if(this.count[i].category==="cat")this.countCat+=1;
+        if(this.count[i].category==="other")this.countOther+=1;
+      }
+
+
     });
-    this.productsService.getProductsByCategory("cat").then((response) => {
-      this.countCat = response.data.length;
-    });
-    this.countOther = this.productsService
-      .getProductsByCategory("other")
-      .then((response) => {
-        this.countOther = response.data.length;
-      });
   },
 };
 </script>

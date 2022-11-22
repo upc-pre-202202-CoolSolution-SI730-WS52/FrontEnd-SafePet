@@ -1,4 +1,5 @@
 <template>
+  <!--
   <div class="w-full h-screen">
     <navigation-component></navigation-component>
     <div class="row flex">
@@ -6,54 +7,22 @@
         <menubar-component></menubar-component>
       </div>
       <div class="col-10 ">
-        <router-view />
+        --><router-view /><!--
       </div>
     </div>
-  </div>
+  </div>-->
 </template>
 
 <script>
 import NavigationComponent from "@/shared/pages/navigation.component.vue";
 import MenubarComponent from "@/shared/pages/menubar.component.vue";
+
 export default {
   name: "App",
   components: { NavigationComponent, MenubarComponent },
   data() {
-    return {
-      items: [
-        {
-          label: "Home",
-          icon: "pi pi-refresh",
-          url: "/",
-        },
-        {
-          label: "Profile",
-          icon: "pi pi-user",
-          url: "/profile",
-        },
-        {
-          label: "Products",
-          icon: "pi pi-cog",
-          url: "/products",
-        },
-        {
-          label: "My Clients",
-          icon: "pi pi-cog",
-          url:"/clients",
-        },
-        {
-          label: "My Appointments",
-          icon: "pi pi-cog",
-          url: "/appointments",
-        },
-        {
-          label: "Messages",
-          icon: "pi pi-cog",
-        },
-      ],
-    };
-  },
-  methods: {},
+    return {}
+  }
 };
 </script>
 

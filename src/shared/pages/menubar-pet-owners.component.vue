@@ -15,14 +15,14 @@
 
 <script>
 export default {
-  name: "MenuBarComponent",
+  name: "MenuBarPetOwnerComponent",
   data() {
     return {
       items: [
         {
           label: "Home",
           icon: "pi pi-home",
-          url: "/home-vets",
+          url: "/home-pet-owner",
         },
         {
           label: "Profile",
@@ -35,9 +35,9 @@ export default {
           url: "/products",
         },
         {
-          label: "My Clients",
+          label: "Vets",
           icon: "pi pi-users",
-          url: "/clients"
+          url: "/vets"
         },
         {
           label: "My Appointments",

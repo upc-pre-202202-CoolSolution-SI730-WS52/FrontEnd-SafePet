@@ -1,38 +1,54 @@
 <template>
-  <div class="clients-container pl-5 mt-3">
-    <div class="top-container">
-      <label class="top-container-title" for="ProductList"> Clients</label>
-      <h3>Select a client </h3>
-    </div>
 
-    <div class="cards justify-content-center" v-for="client in clients" style="margin: 24px 0 0 0">
-      <div class="category-card">
-        <div class="category-card-container">
-          <img class="image" :src="client.photoUrl" alt="category" />
-        </div>
-        <div class="category-card-container ml-3">
-          <div class="ml-3">
-            <h1>{{ client.name }}</h1>
-            <h4>{{ client.petName }}</h4>
+  <div class="w-full h-screen">
+    <navigation-component></navigation-component>
+    <div class="row flex">
+      <div class="col-2">
+        <menubar-component></menubar-component>
+      </div>
+      <div class="col-10 ">
+        <div class="clients-container pl-5 mt-3">
+          <div class="top-container">
+            <label class="top-container-title" for="ProductList"> Clients</label>
+            <h3>Select a client </h3>
           </div>
-        </div>
-        <div class="category-card-container flex justify-content-end mr-6">
-          <pv-button label="Add"></pv-button>
-          <pv-button class="p-button-secondary" label="View" style="margin-left: .5em"></pv-button>
+
+          <div class="cards justify-content-center" v-for="client in clients" style="margin: 24px 0 0 0" v-show="client.vetId===this.currentUser">
+            <div class="category-card" >
+              <div class="category-card-container">
+                <img class="image" :src="client.photoUrl" alt="category" />
+              </div>
+              <div class="category-card-container ml-3">
+                <div class="ml-3">
+                  <h1>{{ client.name }}</h1>
+                  <h4>{{ client.petName }}</h4>
+                </div>
+              </div>
+              <div class="category-card-container flex justify-content-end mr-6">
+                <pv-button label="Add" @click="$router.push(`/clients/${client.id}/add-check`)"></pv-button>
+                <pv-button class="p-button-secondary" @click="$router.push(`/clients/${client.id}`)" label="View" style="margin-left: .5em"></pv-button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
 </template>
 
 <script>
 import { ClientsService } from "@/clients/services/clients.service";
+import NavigationComponent from "@/shared/pages/navigation.component.vue";
+import MenubarComponent from "@/shared/pages/menubar.component.vue";
 
 export default {
   name: "ClientListComponent",
-  components: {},
+  components: { NavigationComponent, MenubarComponent },
   data() {
     return {
+      currentUser: Number(sessionStorage.getItem("userId")),
       clients: [],
       client: {},
       clientsService: null,

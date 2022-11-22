@@ -4,4 +4,7 @@ export class ClientsService {
     getClients = () => {
         return http.get("/clients");
     };
+    getClientById = (id) => {
+        return http.get(`/clients/${id}`);
+    };
 }
