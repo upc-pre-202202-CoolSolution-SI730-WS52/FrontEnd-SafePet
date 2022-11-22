@@ -15,27 +15,27 @@
          <div class="container-body">
 
            <div class="card" >
-             <div class="card-content" v-for="profile in profile" :key="profile.id">
+             <div class="card-content" >
                <div class="container-title">
                  <div clas="container-title-image">
-                   <img alt="profile" :src="profile.photoUrl"/>
+                   <img alt="profile" :src="user.photoUrl"/>
                  </div>
                  <div class="container-title-name">
-                   <h1>{{profile.name}}</h1>
+                   <h1>{{user.name}}</h1>
                  </div>
                </div>
                <div class="container-body-text">
                  <div class="icon">
                    <i class="pi pi-calendar"></i>
-                   <p>{{profile.birthday}}</p>
+                   <p>{{user.birthday}}</p>
                  </div>
                  <div class="icon">
                    <i class="pi pi-phone"></i>
-                   <p>{{profile.phone}}</p>
+                   <p>{{user.phone}}</p>
                  </div>
                  <div class="icon">
                    <i class="pi pi-envelope"></i>
-                   <p>{{profile.email}}</p>
+                   <p>{{user.email}}</p>
                  </div>
                </div>
              </div>
@@ -64,9 +64,8 @@ export default {
   data(){
     return{
       profile:null,
-
       currentUser: Number(sessionStorage.getItem("userId")),
-
+      user:{},
       userRole: "",
 
     }
@@ -74,6 +73,7 @@ export default {
   created(){
     new UsersServices().getUserById(this.currentUser).then((response) => {
       this.userRole=String(response.data.role)
+      this.user=response.data
     });
 
     new ProfileServices().getProfile().then(response => {
@@ -108,7 +108,7 @@ export default {
 
 img{
   display: flex;
-  border-radius: 400%;
+  border-radius: 20%;
   width: 320px;
   height: 400px;
   margin-top: 2%;
