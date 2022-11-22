@@ -33,7 +33,7 @@
             <span class="p-tag">Reviews</span>
           </pv-divider>
 
-          <div class="container-body" v-for="review in reviews" :key="review.id">
+          <div class="container-body" v-for="review in reviews" :key="review.id" v-show="review.veterinarianId===this.veterinary.id">
             <div class="card-apo">
               <div class="info">
                 <h1>{{ review.petOwnerName}}</h1>
@@ -89,7 +89,7 @@ export default {
     });
     this.reviewsService= new ReviewsServices;
 
-    this.reviewsService.getReviewByField('veterinarianId',this.id).then((response) => {
+    this.reviewsService.getReviews().then((response) => {
       this.reviews = response.data;
 
     });
