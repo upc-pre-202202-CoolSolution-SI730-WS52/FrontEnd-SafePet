@@ -26,7 +26,7 @@
             <div class="card" >
               <div class="card-content" >
                 <div class="container-title">
-                  <div clas="container-title-image">
+                  <div class="container-title-image">
                     <img alt="profile" :src="veterinary.photoUrl"/>
                   </div>
                   <div class="container-title-name">

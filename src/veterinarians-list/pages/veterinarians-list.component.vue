@@ -12,8 +12,8 @@
             <h1>Veterinarians</h1>
             <div class="col-12 md:col-4">
               <div class="p-inputgroup">
-                <pv-button label="Search" @click="searchVet()"></pv-button>
-                <pv-input-text v-model="vetSearch" placeholder="Search veterinary" @keyup="searchVet()"></pv-input-text>
+                <pv-button label="Search" @click="getPat()"></pv-button>
+                <pv-input-text v-model="vetSearch" placeholder="Search veterinary"></pv-input-text>
               </div>
             </div>
           </div>
@@ -70,21 +70,28 @@ export default {
         });
   },
   methods:{
-    searchVet(){
 
-      if(this.vetSearch.length===0){
+    getPat( veterinariansFiltered=[], found = false) {
+
+      for(let i = 0; i < this.veterinarians.length; i++) {
+        if(this.veterinarians[i].name.includes(this.vetSearch) ||
+            this.veterinarians[i].name.includes(this.vetSearch)){
+          veterinariansFiltered.push(this.veterinarians[i]);
+          found = true;
+        }
+      }
+
+      if(found && this.vetSearch!=="") {
+        this.veterinarians = veterinariansFiltered;
+      } else{
         new VeterinariansServices()
             .getVeterinarians()
             .then((response) => {
               this.veterinarians = response.data;
             });
-      }else{
-        new VeterinariansServices()
-            .getVeterinariansByField('name',this.vetSearch)
-            .then((response) => {
-              this.veterinarians = response.data;
-            });
       }
+
+
 
     }
   }
