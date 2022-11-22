@@ -21,7 +21,7 @@
           <br />
           <div>
             <div class="cards">
-              <pv-card v-for="product in products" v-bind:key="product.id">
+              <pv-card v-for="product in products" v-bind:key="product.id" v-show="product.category===this.category">
                 <template #header>
                   <div class="card-header">
                     <div class="card-image">
@@ -87,14 +87,12 @@ export default {
     this.productsService = new ProductsService();
     this.categoryProduct = this.$route.params.category;
     this.category = this.$route.params.category;
-    // this.category[0] = this.category[0].toUpperCase();
     this.getProductsByCategory(this.categoryProduct);
   },
   methods: {
     getProductsByCategory: function (category) {
-      this.productsService.getProductsByCategory(category).then((response) => {
+      this.productsService.getProducts().then((response) => {
         this.products = response.data;
-
       });
     },
   },

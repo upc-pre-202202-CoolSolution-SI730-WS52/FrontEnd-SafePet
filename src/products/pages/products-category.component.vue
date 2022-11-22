@@ -20,7 +20,7 @@
           <div class="cards justify-content-center">
             <div class="category-card">
               <div class="category-card-container">
-                <img class="image" src="@/assets/dogs.png" alt="category" />
+                <img class="image" src="https://raw.githubusercontent.com/GabrielGomezDlc/PP-Daop/main/src/assets/dogs.png" alt="category" />
               </div>
               <div class="category-card-container ml-3">
                 <div class="ml-3">
@@ -39,7 +39,7 @@
             <br />
             <div class="category-card">
               <div class="category-card-container">
-                <img class="image" src="@/assets/cat.jpg" alt="category" />
+                <img class="image" src="https://raw.githubusercontent.com/GabrielGomezDlc/PP-Daop/main/src/assets/cat.jpg" alt="category" />
               </div>
               <div class="category-card-container ml-3">
                 <div class="ml-3">
@@ -59,7 +59,7 @@
             <br />
             <div class="category-card">
               <div class="category-card-container">
-                <img class="image" src="@/assets/Other.jpg" alt="category" />
+                <img class="image" src="https://raw.githubusercontent.com/GabrielGomezDlc/PP-Daop/main/src/assets/Other.jpg" alt="category" />
               </div>
               <div class="category-card-container ml-3">
                 <div class="ml-3">
@@ -108,9 +108,10 @@ export default {
       productsService: null,
       categoryProduct: null,
       category: null,
-      countDog: null,
-      countCat: null,
-      countOther: null,
+      count:null,
+      countDog: 0,
+      countCat: 0,
+      countOther: 0,
     };
   },
   created() {
@@ -119,17 +120,16 @@ export default {
     });
 
     this.productsService = new ProductsService();
-    this.productsService.getProductsByCategory("dog").then((response) => {
-      this.countDog = response.data.length;
+    this.productsService.getProducts().then((response) => {
+      this.count = response.data;
+      for(let i = 0; i < this.count.length; i++) {
+        if(this.count[i].category==="dog")this.countDog+=1;
+        if(this.count[i].category==="cat")this.countCat+=1;
+        if(this.count[i].category==="other")this.countOther+=1;
+      }
+
+
     });
-    this.productsService.getProductsByCategory("cat").then((response) => {
-      this.countCat = response.data.length;
-    });
-    this.countOther = this.productsService
-      .getProductsByCategory("other")
-      .then((response) => {
-        this.countOther = response.data.length;
-      });
   },
 };
 </script>

@@ -83,8 +83,7 @@ export default {
       new productViewService()
         .getProductsByID(this.item.category, this.id)
         .then((response) => {
-          this.item = response.data[0];
-          console.log(response.data);
+          this.item = response.data;
         });
     },
   },
