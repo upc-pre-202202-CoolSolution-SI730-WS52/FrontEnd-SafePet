@@ -70,21 +70,26 @@ export default {
   methods:{
     login(){
 
+
       new UsersServices().getUserByField("email",this.email).then((response) => {
-        this.userSearch = response.data[0];
-        console.log(this.userSearch.password)
+        this.userSearch = response.data;
 
       });
 
-        if(String(this.userSearch.password)===this.password){
-          if(this.userSearch.role==="vet"){
+      new UsersServices().SignIn(this.userSearch.username,this.password).then((response)=>{
+        sessionStorage.setItem("JWT", String(response.data.token));
+      })
+
+        if(sessionStorage.getItem("JWT")!=="") {
+          if (this.userSearch.role === "vet") {
             sessionStorage.setItem("userId", this.userSearch.id.toString());
 
             this.$router.push(`/home-vets`);
-          }else{
+          } else {
             sessionStorage.setItem("userId", this.userSearch.id.toString());
             this.$router.push(`/home-pet-owner`);
           }
+
         }
 
     }

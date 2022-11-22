@@ -40,7 +40,13 @@
             <small v-if="(v$.name.$invalid && submitted) || v$.name.$pending.$response" class="p-error">{{v$.name.required.$message.replace('Value', 'Name')}}</small>
           </div>
 
-
+          <div class="field">
+            <div class="p-float-label">
+              <pv-input-text id="last_name" v-model="v$.lastName.$model" :class="{'p-invalid':v$.lastName.$invalid && submitted}" />
+              <label for="last_name" :class="{'p-error':v$.lastName.$invalid && submitted}">Last Name*</label>
+            </div>
+            <small v-if="(v$.lastName.$invalid && submitted) || v$.lastName.$pending.$response" class="p-error">{{v$.lastName.required.$message.replace('Value', 'LastName')}}</small>
+          </div>
 
           <div class="field">
             <div class="p-float-label p-input-icon-right">
@@ -79,7 +85,7 @@
           </div>
           <div class="field">
             <div class="p-float-label">
-              <pv-calendar id="date" v-model="date" :showIcon="true" />
+              <pv-calendar id="date" v-model="date" :showIcon="true" dateFormat="dd/mm/yy"/>
               <label for="date">Birthday</label>
             </div>
           </div>
@@ -135,6 +141,7 @@ export default {
 
     const state = reactive({
       name: '',
+      lastName:'',
       email: '',
       password: '',
       phone:'',
@@ -143,6 +150,7 @@ export default {
 
     const rules = {
       name: { required },
+      lastName: { required },
       email: { required, email },
       phone: { required },
       password: { required },
@@ -180,10 +188,30 @@ export default {
 
       if(this.showMessage===true) {
 
-        new UsersServices().createUser(String(this.state.email),String(this.state.password), String(this.role.code) ).then((response) => {});
+        let completeName= String(this.state.name+' '+this.state.lastName)
+        let appointmentsQuantity=0;
+        let score=0;
+        let photoUrlDefault="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+
+        new UsersServices().createUser(
+            String(completeName),
+            String(new Date(this.date).toISOString().slice(0, 10)
+                .split('-').reverse().join('/')),
+            String(this.state.email),
+            appointmentsQuantity,
+            score,
+            String(this.state.phone),
+            photoUrlDefault,
+            String(this.state.password),
+            String(this.role.code)
+
+        ).then((response) => {});
+
+        new UsersServices().
 
 
         this.state.name = '';
+        this.state.lastName = '';
         this.state.email = '';
         this.state.password = '';
         this.date = null;
@@ -194,21 +222,6 @@ export default {
 
       }
     },
-
-
-
-
-
-
-
-    aa(){
-
-      //new UsersServices().createUser()
-
-      console.log(this.state.name)
-      console.log(new Date(this.date).toLocaleDateString());
-      console.log(this.role.name)
-    }
   }
 }
 </script>
@@ -255,7 +268,7 @@ margin-left: 280%
   font-family: "Lato", sans-serif;
   position: relative;
   width: 500px;
-  height: 600px;
+  height: 680px;
   background: #fdfdfe;
   box-shadow: 5px 5px 15px #7e7c7c;
   border-radius: 10px;
