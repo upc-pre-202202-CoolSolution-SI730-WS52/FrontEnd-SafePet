@@ -10,11 +10,12 @@
       <div class="col-10 ">
         <div class="big-container pl-5 mt-3">
           <div class="container">
+            <div>
             <div id="Appointments">
               <h1 class="container-title" @click="$router.push(`/appointments`)">
                 Appointments
               </h1>
-              <div v-for="appo in appointments" :key="appo.id">
+              <div v-for="appo in appointments" :key="appo.id" v-show="appo.veterinarianId===this.currentUser">
                 <div class="card-apo">
                   <div class="info">
                     <h1>Appointment</h1>
@@ -29,7 +30,7 @@
               <h1 class="container-title" @click="$router.push(`/clients`)">
                 My Clients
               </h1>
-              <div v-for="client in clients" :key="client.id">
+              <div v-for="client in clients" :key="client.id" v-show="client.vetId===this.currentUser">
                 <div class="card" @click="$router.push(`/clients/${client.id}`)" >
                   <div class="product">
                     <h1>{{ client.name }}</h1>
@@ -41,7 +42,7 @@
                 </div>
               </div>
             </div>
-
+            </div>
 
             <div class="most-purchased-products">
               <h1 class="container-title" @click="$router.push(`/products`)">
@@ -62,14 +63,6 @@
             </div>
           </div>
 
-
-          <div class="container">
-            <div id="veterinarians-near-you">
-              <h1 class="container-title">Messages</h1>
-
-            </div>
-
-          </div>
         </div>
       </div>
     </div>
@@ -105,7 +98,7 @@ export default {
   created() {
     this.currentUser=Number(sessionStorage.getItem("userId"));
     new AppointmentsServices()
-        .getAppointmentByField("veterinarianId", this.currentUser)
+        .getAppointments()
         .then((response) => {
           this.appointments = response.data;
         });
@@ -238,11 +231,11 @@ img {
   font-size: 25px;
 }
 .my-clients{
-  margin-left: 100px;
+  margin-top:200px;
 }
 
 .most-purchased-products {
-  margin-left: 100px;
+  margin-left: 300px;
 }
 
 .maps-location {

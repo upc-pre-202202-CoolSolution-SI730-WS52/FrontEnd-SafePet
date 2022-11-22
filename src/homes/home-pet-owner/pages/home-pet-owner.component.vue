@@ -24,7 +24,7 @@
               <h1 class="container-title" @click="$router.push(`/appointments`)">
                 Appointments
               </h1>
-              <div v-for="appo in appointments" :key="appo.id">
+              <div v-for="appo in appointments" :key="appo.id" v-show="appo.petOwnerId===this.currentUser">
                 <div class="card-apo">
                   <div class="info">
                     <h1>Appointment </h1>
@@ -56,7 +56,7 @@
 
           <div class="container">
             <div id="veterinarians-near-you">
-              <h1 class="container-title">Veterinarians near you</h1>
+              <h1 class="container-title" @click="$router.push(`/vets`)">Veterinarians near you</h1>
               <div v-for="vet in veterinarians_near_you" :key="vet.id">
                 <div class="card">
                   <div class="product">
@@ -113,7 +113,7 @@ export default {
     this.currentUser=Number(sessionStorage.getItem("userId"));
 
     new AppointmentsServices()
-      .getAppointmentByField("petOwnerId", this.currentUser)
+      .getAppointments()
       .then((response) => {
         this.appointments = response.data;
       });
