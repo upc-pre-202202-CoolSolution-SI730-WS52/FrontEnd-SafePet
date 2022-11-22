@@ -24,10 +24,10 @@
                 <h1 style="margin-bottom:10px; text-align:center"><b>Date: {{ check.date }}</b></h1>
                 <h1><b>Observations</b></h1>
                 <hr class="solid">
-                <p>{{ check.obs }}</p>
+                <p>{{ check.observation }}</p>
                 <h1 style="margin-top:30px"><b>Prescription</b></h1>
                 <hr class="solid">
-                <p>{{ check.pres }}</p>
+                <p>{{ check.prescription }}</p>
               </div>
             </div>
           </div>
@@ -77,8 +77,7 @@ export default {
     getInformation() {
       new ClientsService().getClientById(this.id)
       .then((response) => {
-        this.item = response.data[0];
-        console.log(response.data);
+        this.item = response.data;
       });
     },
     getChecks() {
