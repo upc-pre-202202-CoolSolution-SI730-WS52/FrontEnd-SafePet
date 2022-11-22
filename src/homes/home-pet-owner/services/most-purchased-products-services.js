@@ -4,7 +4,7 @@ export class MostPurchasedProductsServices {
 
 
     getMostPurchasedProducts=()=>{
-        return http.get("/most_purchased_products")
+        return http.get("/mostpurchasedproducts")
     }
 
 }
