@@ -45,9 +45,10 @@ export default {
           url: "/appointments",
         },
         {
-          label: "Messages",
-          icon: "pi pi-telegram",
-        },
+          label: "Log Out",
+          icon: "pi pi-sign-out",
+          url: "/",
+        }
       ],
     };
   },
